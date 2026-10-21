@@ -24,30 +24,31 @@
        1. Top Announcement Marquee Ticker
        ========================================================================== -->
   <div class="announcement-bar" id="announcementBar">
+    <div class="ticker-gradient-line"></div>
     <div class="ticker-track">
       <div class="ticker-item">
-        <span>⚡ 10% OFF ON PREPAID ORDERS</span>
+        <span class="ticker-pill ticker-pill-orange">⚡ 10% OFF ON PREPAID ORDERS</span>
         <span class="ticker-separator">///</span>
-        <span>FREE EXPRESS SHIPPING OVER ₹2,999</span>
+        <span class="ticker-pill ticker-pill-green">FREE EXPRESS SHIPPING OVER ₹2,999</span>
         <span class="ticker-separator">///</span>
-        <span>LIMITED DROP 01: SKULL DEMON & ACID WASH OVERSIZED TEES NOW LIVE</span>
+        <span class="ticker-pill ticker-pill-blue">LIMITED DROP 01: SKULL DEMON & ACID WASH OVERSIZED TEES NOW LIVE</span>
         <span class="ticker-separator">///</span>
-        <span>280 GSM HEAVY COMBED COTTON ARCHIVES</span>
+        <span class="ticker-pill ticker-pill-purple">280 GSM HEAVY COMBED COTTON ARCHIVES</span>
         <span class="ticker-separator">///</span>
-        <span>DISPATCH WITHIN 24 HOURS ACROSS INDIA & WORLDWIDE</span>
+        <span class="ticker-pill ticker-pill-volt">DISPATCH WITHIN 24 HOURS ACROSS INDIA & WORLDWIDE</span>
         <span class="ticker-separator">///</span>
       </div>
       <!-- Duplicate for infinite seamless marquee -->
       <div class="ticker-item" aria-hidden="true">
-        <span>⚡ 10% OFF ON PREPAID ORDERS</span>
+        <span class="ticker-pill ticker-pill-orange">⚡ 10% OFF ON PREPAID ORDERS</span>
         <span class="ticker-separator">///</span>
-        <span>FREE EXPRESS SHIPPING OVER ₹2,999</span>
+        <span class="ticker-pill ticker-pill-green">FREE EXPRESS SHIPPING OVER ₹2,999</span>
         <span class="ticker-separator">///</span>
-        <span>LIMITED DROP 01: SKULL DEMON & ACID WASH OVERSIZED TEES NOW LIVE</span>
+        <span class="ticker-pill ticker-pill-blue">LIMITED DROP 01: SKULL DEMON & ACID WASH OVERSIZED TEES NOW LIVE</span>
         <span class="ticker-separator">///</span>
-        <span>280 GSM HEAVY COMBED COTTON ARCHIVES</span>
+        <span class="ticker-pill ticker-pill-purple">280 GSM HEAVY COMBED COTTON ARCHIVES</span>
         <span class="ticker-separator">///</span>
-        <span>DISPATCH WITHIN 24 HOURS ACROSS INDIA & WORLDWIDE</span>
+        <span class="ticker-pill ticker-pill-volt">DISPATCH WITHIN 24 HOURS ACROSS INDIA & WORLDWIDE</span>
         <span class="ticker-separator">///</span>
       </div>
     </div>
@@ -77,6 +78,15 @@
 
       <!-- Right Utility Tools -->
       <div class="header-right">
+        <!-- Color Aura Switcher -->
+        <select class="aura-select" id="auraColorSelect" aria-label="Color Palette Selector" title="Switch Color Aura Mood">
+          <option value="cobalt" selected>AURA: ⚡ ELECTRIC COBALT</option>
+          <option value="solar">AURA: 🔥 SOLAR FLAME</option>
+          <option value="acid">AURA: 🧪 VOLT ACID LIME</option>
+          <option value="violet">AURA: 🔮 IMPERIAL VIOLET</option>
+          <option value="cyber">AURA: 💎 CYBER CYAN</option>
+        </select>
+
         <!-- Heading Typography Font Switcher -->
         <select class="font-select" id="headingFontSelect" aria-label="Heading Typography Selector" title="Switch Heading Font Style">
           <option value="syncopate" selected>FONT: SYNCOPATE (WIDE STREETWEAR)</option>
@@ -938,9 +948,9 @@
   </div>
 
   <!-- ==========================================================================
-       Interactive Typography Quick-Studio Dock
+       Interactive Typography & Color Studio Quick-Dock
        ========================================================================== -->
-  <div class="typography-quick-dock" id="typoDock" title="Live Heading Typography Previewer">
+  <div class="typography-quick-dock" id="typoDock" title="Live Typography & Color Studio">
     <span class="dock-title">TYPE:</span>
     <button class="dock-btn active" data-font="syncopate">SYNCOPATE</button>
     <button class="dock-btn" data-font="unbounded">UNBOUNDED</button>
@@ -949,6 +959,15 @@
     <button class="dock-btn" data-font="bodoni">BODONI</button>
     <button class="dock-btn" data-font="bebas">BEBAS</button>
     <button class="dock-btn" data-font="cinzel">CINZEL</button>
+    
+    <div class="dock-divider" aria-hidden="true"></div>
+
+    <span class="dock-title">AURA:</span>
+    <button class="dock-aura-btn active" data-aura="cobalt" title="Electric Cobalt"><span class="aura-dot cobalt"></span>COBALT</button>
+    <button class="dock-aura-btn" data-aura="solar" title="Solar Flame"><span class="aura-dot solar"></span>SOLAR</button>
+    <button class="dock-aura-btn" data-aura="acid" title="Volt Acid Lime"><span class="aura-dot acid"></span>ACID</button>
+    <button class="dock-aura-btn" data-aura="violet" title="Imperial Violet"><span class="aura-dot violet"></span>VIOLET</button>
+    <button class="dock-aura-btn" data-aura="cyber" title="Cyber Cyan"><span class="aura-dot cyber"></span>CYBER</button>
   </div>
 
   <!-- App Script -->

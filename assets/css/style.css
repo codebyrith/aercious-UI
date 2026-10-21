@@ -14,14 +14,33 @@
   --color-black: #000000;
   --color-dark: #111111;
   --color-text-main: #000000;
-  --color-text-muted: #666666;
-  --color-text-light: #999999;
+  --color-text-muted: #555555;
+  --color-text-light: #888888;
   --color-border: #e6e6e8;
   --color-border-dark: #000000;
   --color-accent-offer: #d9381e;
   --color-offer-bg: #fff1f0;
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #128C7E;
+
+  /* ==========================================================================
+     Vibrant High-Fashion Color Aura Tokens (Dynamic Themes)
+     ========================================================================== */
+  --aura-primary: #2563eb;
+  --aura-primary-rgb: 37, 99, 235;
+  --aura-secondary: #06b6d4;
+  --aura-secondary-rgb: 6, 182, 212;
+  --aura-accent: #ccff00;
+  --aura-accent-rgb: 204, 255, 0;
+  --aura-orange: #ff5500;
+  --aura-purple: #8b5cf6;
+  --aura-cyan: #06b6d4;
+  --aura-rose: #f43f5e;
+  --aura-glow: 0 0 25px rgba(37, 99, 235, 0.35);
+  --aura-subtle-glow: 0 4px 20px rgba(37, 99, 235, 0.16);
+  --aura-gradient-brand: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #ff5500 100%);
+  --aura-gradient-flame: linear-gradient(135deg, #ff3b00 0%, #ff7700 100%);
+  --aura-gradient-volt: linear-gradient(135deg, #059669 0%, #10b981 50%, #ccff00 100%);
 
   --font-display: 'Syncopate', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Syncopate', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,11 +49,57 @@
   --heading-letter-spacing: 0.12em;
 
   --header-height: 80px;
-  --ticker-height: 36px;
+  --ticker-height: 38px;
   --drawer-width: 440px;
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Color Aura Dynamic Presets */
+[data-aura="cobalt"], :root {
+  --aura-primary: #2563eb;
+  --aura-primary-rgb: 37, 99, 235;
+  --aura-secondary: #06b6d4;
+  --aura-secondary-rgb: 6, 182, 212;
+  --aura-accent: #38bdf8;
+  --aura-glow: 0 0 25px rgba(37, 99, 235, 0.38);
+}
+
+[data-aura="solar"] {
+  --aura-primary: #ff4500;
+  --aura-primary-rgb: 255, 69, 0;
+  --aura-secondary: #ff8c00;
+  --aura-secondary-rgb: 255, 140, 0;
+  --aura-accent: #ffd700;
+  --aura-glow: 0 0 25px rgba(255, 69, 0, 0.38);
+}
+
+[data-aura="acid"] {
+  --aura-primary: #10b981;
+  --aura-primary-rgb: 16, 185, 129;
+  --aura-secondary: #84cc16;
+  --aura-secondary-rgb: 132, 204, 22;
+  --aura-accent: #ccff00;
+  --aura-glow: 0 0 25px rgba(16, 185, 129, 0.38);
+}
+
+[data-aura="violet"] {
+  --aura-primary: #8b5cf6;
+  --aura-primary-rgb: 139, 92, 246;
+  --aura-secondary: #ec4899;
+  --aura-secondary-rgb: 236, 72, 153;
+  --aura-accent: #f43f5e;
+  --aura-glow: 0 0 25px rgba(139, 92, 246, 0.38);
+}
+
+[data-aura="cyber"] {
+  --aura-primary: #06b6d4;
+  --aura-primary-rgb: 6, 182, 212;
+  --aura-secondary: #3b82f6;
+  --aura-secondary-rgb: 59, 130, 246;
+  --aura-accent: #a855f7;
+  --aura-glow: 0 0 25px rgba(6, 182, 212, 0.38);
 }
 
 /* Typography Dynamic Themes */
@@ -167,7 +232,7 @@ ul {
 }
 
 /* ==========================================================================
-   Announcement Bar Marquee
+   Announcement Bar Marquee (With Shimmering Gradient Horizon)
    ========================================================================== */
 .announcement-bar {
   background-color: var(--color-white);
@@ -179,10 +244,29 @@ ul {
   z-index: 101;
 }
 
+.ticker-gradient-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff5500, #ff007a, #7928ca, #2563eb, #00dfd8, #ccff00, #ff5500);
+  background-size: 300% 100%;
+  animation: tickerGradientShift 7s ease infinite alternate;
+  z-index: 2;
+}
+
+@keyframes tickerGradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 .ticker-track {
   display: flex;
   width: max-content;
   animation: ticker-slide 28s linear infinite;
+  align-items: center;
+  height: 100%;
 }
 
 .ticker-track:hover {
@@ -195,15 +279,66 @@ ul {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 0 40px;
+  padding: 0 32px;
   white-space: nowrap;
 }
 
+.ticker-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  transition: transform var(--transition-fast);
+}
+
+.ticker-pill:hover {
+  transform: translateY(-1px);
+}
+
+.ticker-pill-orange {
+  background: rgba(255, 85, 0, 0.08);
+  color: #ff5500;
+  border: 1px solid rgba(255, 85, 0, 0.28);
+  box-shadow: 0 0 8px rgba(255, 85, 0, 0.12);
+}
+
+.ticker-pill-green {
+  background: rgba(16, 185, 129, 0.08);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.12);
+}
+
+.ticker-pill-blue {
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.28);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.12);
+}
+
+.ticker-pill-purple {
+  background: rgba(139, 92, 246, 0.08);
+  color: #7c3aed;
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.12);
+}
+
+.ticker-pill-volt {
+  background: #111111;
+  color: #ccff00;
+  border: 1px solid #ccff00;
+  box-shadow: 0 0 10px rgba(204, 255, 0, 0.25);
+}
+
 .ticker-separator {
-  margin: 0 16px;
-  color: var(--color-text-light);
+  margin: 0 14px;
+  color: var(--color-border);
+  font-weight: 700;
 }
 
 @keyframes ticker-slide {
@@ -219,7 +354,7 @@ ul {
   top: 0;
   width: 100%;
   height: var(--header-height);
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
@@ -228,7 +363,7 @@ ul {
 }
 
 .site-header.scrolled {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .header-inner {
@@ -270,9 +405,10 @@ ul {
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 2px;
-  background-color: var(--color-black);
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--aura-primary), var(--aura-secondary));
   transition: width var(--transition-fast);
+  box-shadow: 0 0 8px rgba(var(--aura-primary-rgb), 0.45);
 }
 
 .nav-link.active::after,
@@ -296,6 +432,7 @@ ul {
   text-transform: uppercase;
   color: var(--color-black);
   line-height: 1;
+  transition: color var(--transition-fast);
 }
 
 .brand-sub {
@@ -312,8 +449,30 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 14px;
   flex: 1;
+}
+
+.aura-select {
+  appearance: none;
+  background: rgba(var(--aura-primary-rgb), 0.06);
+  color: var(--aura-primary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(var(--aura-primary-rgb), 0.35);
+  padding: 8px 12px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.aura-select:hover {
+  border-color: var(--aura-primary);
+  box-shadow: 0 0 12px rgba(var(--aura-primary-rgb), 0.25);
+  background: rgba(var(--aura-primary-rgb), 0.12);
 }
 
 .currency-select,
@@ -334,7 +493,7 @@ ul {
 
 .currency-select:hover,
 .font-select:hover {
-  border-color: var(--color-black);
+  border-color: var(--aura-primary);
 }
 
 .header-cart-btn {
@@ -350,11 +509,23 @@ ul {
   color: var(--color-white);
   border: 1px solid var(--color-black);
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .header-cart-btn:hover {
   background-color: var(--color-white);
   color: var(--color-black);
+  border-color: var(--aura-primary);
+  box-shadow: 0 0 16px rgba(var(--aura-primary-rgb), 0.3);
+}
+
+#cartCountBadge.has-items {
+  background: linear-gradient(135deg, var(--aura-primary), var(--aura-secondary));
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(var(--aura-primary-rgb), 0.4);
 }
 
 /* ==========================================================================
@@ -406,8 +577,11 @@ ul {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0.98) 100%);
+  background: 
+    radial-gradient(ellipse 65% 55% at 50% 28%, rgba(var(--aura-primary-rgb), 0.16) 0%, rgba(var(--aura-secondary-rgb), 0.1) 40%, rgba(204, 255, 0, 0.03) 70%, transparent 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.65) 65%, rgba(255,255,255,0.98) 100%);
   z-index: 2;
+  transition: background 0.6s ease;
 }
 
 .hero-3d-stage {
@@ -430,17 +604,19 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--color-white);
-  border: 1px solid var(--color-black);
-  padding: 6px 16px;
+  background: #000000;
+  border: 1px solid var(--aura-accent);
+  color: var(--aura-accent);
+  padding: 6px 18px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 16px rgba(var(--aura-primary-rgb), 0.3);
   transform: translateZ(40px);
+  border-radius: 2px;
 }
 
 .hero-3d-headline {
@@ -457,8 +633,15 @@ ul {
 }
 
 .hero-3d-headline span.outline {
-  -webkit-text-stroke: 2px var(--color-black);
+  -webkit-text-stroke: 2.5px var(--aura-primary);
   color: transparent;
+  text-shadow: 0 0 35px rgba(var(--aura-primary-rgb), 0.25);
+  transition: all 0.3s ease;
+}
+
+.hero-3d-headline:hover span.outline {
+  color: rgba(var(--aura-primary-rgb), 0.12);
+  text-shadow: 0 0 50px rgba(var(--aura-primary-rgb), 0.45);
 }
 
 .hero-3d-desc {
@@ -494,11 +677,15 @@ ul {
   text-transform: uppercase;
   border: 1px solid var(--color-black);
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .btn-aer-black:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: #000000;
+  border-color: var(--aura-primary);
+  color: #ffffff;
+  box-shadow: 0 10px 30px -5px rgba(var(--aura-primary-rgb), 0.45);
+  transform: translateY(-2px);
 }
 
 .btn-aer-ghost {
@@ -516,11 +703,15 @@ ul {
   text-transform: uppercase;
   border: 1px solid var(--color-black);
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .btn-aer-ghost:hover {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  border-color: var(--aura-secondary);
+  color: var(--aura-secondary);
+  background-color: rgba(var(--aura-secondary-rgb), 0.05);
+  box-shadow: 0 8px 24px -4px rgba(var(--aura-secondary-rgb), 0.25);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -590,12 +781,13 @@ ul {
   flex-direction: column;
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   cursor: pointer;
+  border-radius: 2px;
 }
 
 .product-item-card:hover {
-  border-color: var(--color-black);
+  border-color: var(--aura-primary);
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 40px -10px rgba(var(--aura-primary-rgb), 0.22), 0 0 0 1px var(--aura-primary);
 }
 
 .product-item-media {
@@ -651,21 +843,39 @@ ul {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  padding: 4px 10px;
+  padding: 5px 12px;
   text-transform: uppercase;
   background-color: var(--color-black);
   color: var(--color-white);
+  border-radius: 2px;
+}
+
+.card-badge-pill.badge-limited {
+  background-color: #0b0b0b;
+  color: #ccff00;
+  border: 1px solid #ccff00;
+  box-shadow: 0 2px 12px rgba(204, 255, 0, 0.35);
+  text-shadow: 0 0 6px rgba(204, 255, 0, 0.4);
+}
+
+.card-badge-pill.badge-studio {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.22);
 }
 
 .card-badge-offer {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.1em;
-  padding: 4px 10px;
+  padding: 5px 12px;
   text-transform: uppercase;
-  background-color: var(--color-accent-offer);
-  color: var(--color-white);
+  background: linear-gradient(135deg, #ff3b00 0%, #ff7700 100%);
+  color: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(255, 59, 0, 0.35);
 }
 
 /* Card Body */
@@ -695,6 +905,11 @@ ul {
   color: var(--color-black);
   line-height: 1.25;
   margin-bottom: 12px;
+  transition: color var(--transition-fast);
+}
+
+.product-item-card:hover .product-item-title {
+  color: var(--aura-primary);
 }
 
 /* Pricing Row with Highlighted Offer */
@@ -719,7 +934,7 @@ ul {
 .price-original-strikethrough {
   font-family: var(--font-mono);
   font-size: 1rem;
-  color: var(--color-text-light);
+  color: #a8a8a8;
   text-decoration: line-through;
 }
 
@@ -729,10 +944,12 @@ ul {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--color-accent-offer);
-  background-color: var(--color-offer-bg);
-  padding: 4px 8px;
-  border-radius: 2px;
+  color: #ea580c;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1px solid #fed7aa;
+  padding: 4px 10px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(234, 88, 12, 0.1);
 }
 
 /* Sizes with Out-Of-Stock Strike-Through Box */
@@ -769,13 +986,21 @@ ul {
   transition: all var(--transition-fast);
   cursor: pointer;
   position: relative;
+  border-radius: 2px;
 }
 
-.size-pill:hover:not(.out-of-stock),
+.size-pill:hover:not(.out-of-stock) {
+  border-color: var(--aura-primary);
+  color: var(--aura-primary);
+  background-color: rgba(var(--aura-primary-rgb), 0.04);
+}
+
 .size-pill.selected {
-  border-color: var(--color-black);
-  background-color: var(--color-black);
-  color: var(--color-white);
+  border-color: var(--aura-primary) !important;
+  background-color: rgba(var(--aura-primary-rgb), 0.08) !important;
+  color: var(--aura-primary) !important;
+  font-weight: 800;
+  box-shadow: 0 0 0 2px var(--aura-primary), 0 4px 12px rgba(var(--aura-primary-rgb), 0.25);
 }
 
 /* Out-of-Stock Clean Strike-Through Line */
@@ -819,11 +1044,13 @@ ul {
   border: 1px solid var(--color-black);
   text-align: center;
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .btn-card-pdp:hover {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: rgba(var(--aura-secondary-rgb), 0.05);
+  border-color: var(--aura-secondary);
+  color: var(--aura-secondary);
 }
 
 .btn-card-quickadd {
@@ -838,11 +1065,14 @@ ul {
   border: 1px solid var(--color-black);
   text-align: center;
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .btn-card-quickadd:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--aura-primary);
+  border-color: var(--aura-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(var(--aura-primary-rgb), 0.4);
 }
 
 /* ==========================================================================
@@ -952,12 +1182,17 @@ ul {
   padding: 0;
   cursor: pointer;
   border-radius: 2px;
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.pdp-thumb-btn.active,
 .pdp-thumb-btn:hover {
-  border-color: var(--color-black);
+  border-color: var(--aura-primary);
+  transform: translateY(-2px);
+}
+
+.pdp-thumb-btn.active {
+  border-color: var(--aura-primary);
+  box-shadow: 0 0 0 2px var(--aura-primary), 0 4px 12px rgba(var(--aura-primary-rgb), 0.25);
   transform: translateY(-2px);
 }
 
@@ -1003,10 +1238,17 @@ ul {
 .pdp-badge {
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
-  margin-bottom: 10px;
+  color: var(--aura-primary);
+  background: rgba(var(--aura-primary-rgb), 0.08);
+  border: 1px solid rgba(var(--aura-primary-rgb), 0.25);
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 12px;
 }
 
 .pdp-title {
@@ -1042,7 +1284,7 @@ ul {
 .pdp-price-compare {
   font-family: var(--font-mono);
   font-size: 1.15rem;
-  color: var(--color-text-light);
+  color: #a0a0a0;
   text-decoration: line-through;
 }
 
@@ -1050,12 +1292,14 @@ ul {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.1em;
-  padding: 4px 10px;
-  background-color: var(--color-offer-bg);
-  color: var(--color-accent-offer);
-  border: 1px solid #ffccc7;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.15);
 }
 
 .pdp-tax-note {
@@ -1087,10 +1331,11 @@ ul {
   text-decoration: underline;
   cursor: pointer;
   color: var(--color-text-muted);
+  transition: color var(--transition-fast);
 }
 
 .pdp-size-guide-btn:hover {
-  color: var(--color-black);
+  color: var(--aura-primary);
 }
 
 .pdp-size-row {
@@ -1114,13 +1359,21 @@ ul {
   transition: all var(--transition-fast);
   cursor: pointer;
   position: relative;
+  border-radius: 2px;
 }
 
-.pdp-size-btn:hover:not(.out-of-stock),
+.pdp-size-btn:hover:not(.out-of-stock) {
+  border-color: var(--aura-primary);
+  color: var(--aura-primary);
+  background-color: rgba(var(--aura-primary-rgb), 0.04);
+}
+
 .pdp-size-btn.selected {
-  border-color: var(--color-black);
-  background-color: var(--color-black);
-  color: var(--color-white);
+  border-color: var(--aura-primary) !important;
+  background-color: rgba(var(--aura-primary-rgb), 0.08) !important;
+  color: var(--aura-primary) !important;
+  font-weight: 800;
+  box-shadow: 0 0 0 2px var(--aura-primary), 0 4px 14px rgba(var(--aura-primary-rgb), 0.25);
 }
 
 /* Out-of-Stock Strike-Through for PDP Sizes */
@@ -1156,6 +1409,7 @@ ul {
   display: flex;
   align-items: center;
   border: 1px solid var(--color-black);
+  border-radius: 2px;
 }
 
 .pdp-qty-btn {
@@ -1167,6 +1421,7 @@ ul {
   font-family: var(--font-mono);
   font-size: 1rem;
   color: var(--color-black);
+  transition: background-color var(--transition-fast);
 }
 
 .pdp-qty-btn:hover {
@@ -1197,11 +1452,15 @@ ul {
   justify-content: center;
   gap: 10px;
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .btn-pdp-add:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: #000000;
+  border-color: var(--aura-primary);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(var(--aura-primary-rgb), 0.45);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -1624,14 +1883,18 @@ ul {
 
 .cart-progress-track {
   width: 100%;
-  height: 4px;
+  height: 5px;
   background-color: #e5e5e8;
   overflow: hidden;
+  border-radius: 3px;
 }
 
 .cart-progress-fill {
   height: 100%;
-  background-color: var(--color-black);
+  background: linear-gradient(90deg, #ff5500, #ff8c00, var(--aura-primary), #10b981);
+  background-size: 200% 100%;
+  animation: tickerGradientShift 4s ease infinite alternate;
+  box-shadow: 0 0 10px rgba(var(--aura-primary-rgb), 0.5);
   width: 0%;
   transition: width var(--transition-smooth);
 }
@@ -1751,7 +2014,7 @@ ul {
 }
 
 .cart-item-remove:hover {
-  color: var(--color-black);
+  color: #ef4444;
 }
 
 .cart-drawer-footer {
@@ -1797,11 +2060,14 @@ ul {
   justify-content: center;
   gap: 12px;
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .btn-checkout:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--aura-primary);
+  border-color: var(--aura-primary);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(var(--aura-primary-rgb), 0.45);
 }
 
 /* ==========================================================================
@@ -2048,8 +2314,8 @@ ul {
 
 .video-reel-card:hover {
   transform: translateY(-6px);
-  border-color: var(--color-black);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  border-color: var(--aura-primary);
+  box-shadow: 0 20px 45px -10px rgba(var(--aura-primary-rgb), 0.35);
 }
 
 .video-reel-media {
@@ -2088,16 +2354,18 @@ ul {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  color: #00dfd8;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
   padding: 4px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 223, 216, 0.4);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 223, 216, 0.2);
 }
 
 .reel-sound-btn {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
   width: 28px;
   height: 28px;
@@ -2107,11 +2375,13 @@ ul {
   cursor: pointer;
   border-radius: 50%;
   font-size: 0.75rem;
-  transition: background var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .reel-sound-btn:hover {
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--aura-primary);
+  border-color: var(--aura-primary);
+  transform: scale(1.1);
 }
 
 .reel-center-play-indicator {
@@ -2119,38 +2389,43 @@ ul {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(var(--aura-primary-rgb), 0.35);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(var(--aura-primary-rgb), 0.65);
+  box-shadow: 0 0 20px rgba(var(--aura-primary-rgb), 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-size: 0.9rem;
-  opacity: 0.8;
+  opacity: 0.85;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .video-reel-card:hover .reel-center-play-indicator {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.15);
+  background: var(--aura-primary);
 }
 
 /* Floating Shoppable Bottom Pill */
 .video-reel-shoppable-pill {
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   border: 1px solid var(--color-border);
   padding: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: background-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  border-radius: 2px;
 }
 
 .video-reel-shoppable-pill:hover {
   background: #ffffff;
+  border-color: var(--aura-primary);
+  box-shadow: 0 4px 16px rgba(var(--aura-primary-rgb), 0.2);
 }
 
 .reel-prod-thumb {
@@ -2160,6 +2435,7 @@ ul {
   border: 1px solid var(--color-border);
   flex-shrink: 0;
   background: var(--color-offwhite);
+  border-radius: 2px;
 }
 
 .reel-prod-details {
@@ -2187,20 +2463,25 @@ ul {
 }
 
 .btn-reel-shop {
-  background-color: var(--color-black);
+  background: var(--aura-primary);
   color: #fff;
   border: none;
   font-family: var(--font-mono);
   font-size: 0.65rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  padding: 6px 9px;
+  padding: 7px 12px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background var(--transition-fast);
+  transition: all var(--transition-fast);
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(var(--aura-primary-rgb), 0.35);
 }
 
 .btn-reel-shop:hover {
-  background-color: #333;
+  background: #000000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transform: scale(1.04);
 }
 
 /* ==========================================================================
@@ -2835,9 +3116,10 @@ ul {
 
 .review-filter-pill.active,
 .review-filter-pill:hover {
-  background-color: var(--color-black);
+  background-color: var(--aura-primary);
+  border-color: var(--aura-primary);
   color: #fff;
-  border-color: var(--color-black);
+  box-shadow: 0 4px 12px rgba(var(--aura-primary-rgb), 0.3);
 }
 
 /* Reviews Cards List */
@@ -2854,11 +3136,13 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  border-radius: 2px;
 }
 
 .review-card:hover {
-  border-color: var(--color-black);
+  border-color: var(--aura-primary);
+  box-shadow: 0 10px 24px rgba(var(--aura-primary-rgb), 0.12);
 }
 
 .review-card-top {
@@ -2894,11 +3178,13 @@ ul {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  padding: 2px 6px;
-  background-color: #f6ffed;
-  color: #52c41a;
-  border: 1px solid #b7eb8f;
+  padding: 3px 8px;
+  background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+  color: #ffffff;
+  border: 1px solid #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
   font-weight: 700;
+  border-radius: 2px;
 }
 
 .reviewer-location-date {
@@ -2907,8 +3193,10 @@ ul {
   color: var(--color-text-light);
 }
 
-.review-stars-gold {
-  color: #ff9500;
+.review-stars-gold,
+.rating-stars-gold {
+  color: #f59e0b;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.45);
   font-size: 0.95rem;
   letter-spacing: 1.5px;
 }
@@ -3323,18 +3611,19 @@ ul {
 }
 
 /* ==========================================================================
-   Floating Typography Quick-Dock Preview Bar
+   Floating Typography & Color Studio Quick-Dock Preview Bar
    ========================================================================== */
 .typography-quick-dock {
   position: fixed;
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-  padding: 8px 14px;
+  background: rgba(8, 8, 10, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--aura-primary-rgb), 0.2);
+  padding: 8px 16px;
   border-radius: 40px;
   display: flex;
   align-items: center;
@@ -3342,6 +3631,7 @@ ul {
   z-index: 990;
   max-width: 95vw;
   overflow-x: auto;
+  transition: box-shadow var(--transition-smooth);
 }
 
 .dock-title {
@@ -3349,7 +3639,7 @@ ul {
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   color: #888;
-  padding: 0 6px;
+  padding: 0 4px;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -3379,15 +3669,66 @@ ul {
   font-weight: 700;
 }
 
+.dock-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.22);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.dock-aura-btn {
+  background: transparent;
+  color: #bbb;
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 5px 11px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.dock-aura-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dock-aura-btn.active {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(var(--aura-primary-rgb), 0.35);
+}
+
+.aura-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.aura-dot.cobalt { background: #2563eb; box-shadow: 0 0 8px #2563eb; }
+.aura-dot.solar  { background: #ff5500; box-shadow: 0 0 8px #ff5500; }
+.aura-dot.acid   { background: #ccff00; box-shadow: 0 0 8px #ccff00; }
+.aura-dot.violet { background: #8b5cf6; box-shadow: 0 0 8px #8b5cf6; }
+.aura-dot.cyber  { background: #06b6d4; box-shadow: 0 0 8px #06b6d4; }
+
 @media (max-width: 768px) {
   .typography-quick-dock {
     bottom: 14px;
     padding: 6px 10px;
     gap: 6px;
   }
-  .dock-btn {
-    font-size: 0.62rem;
-    padding: 5px 9px;
+  .dock-btn, .dock-aura-btn {
+    font-size: 0.6rem;
+    padding: 5px 8px;
   }
 }
 

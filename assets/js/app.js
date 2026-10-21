@@ -156,6 +156,7 @@
     setupNavigation();
     setupCurrency();
     setupHeadingFont();
+    setupAuraColor();
     setup3DParallax();
     setupCartDrawer();
     setupLookbookVideo();
@@ -296,7 +297,7 @@
             <img class="product-img-back" src="${product.hoverImage}" alt="${product.title} Alternate" loading="lazy" />
             
             <div class="card-badges-wrap">
-              <span class="card-badge-pill">${product.badge}</span>
+              <span class="card-badge-pill ${product.id === 'skull-demon-tee' ? 'badge-limited' : 'badge-studio'}">${product.badge}</span>
               <span class="card-badge-offer">${product.discountBadge}</span>
             </div>
           </div>
@@ -634,7 +635,14 @@
 
   function updateCartUI() {
     const totalCount = State.cart.reduce((sum, item) => sum + item.quantity, 0);
-    if (DOM.cartCountBadge) DOM.cartCountBadge.textContent = `[ ${totalCount} ]`;
+    if (DOM.cartCountBadge) {
+      DOM.cartCountBadge.textContent = `[ ${totalCount} ]`;
+      if (totalCount > 0) {
+        DOM.cartCountBadge.classList.add('has-items');
+      } else {
+        DOM.cartCountBadge.classList.remove('has-items');
+      }
+    }
 
     if (!DOM.cartItemsBody) return;
 
@@ -859,6 +867,64 @@
         e.preventDefault();
         const fontKey = btn.dataset.font;
         applyHeadingFont(fontKey, true);
+      });
+    });
+  }
+
+  // ---------------------------------------------------------------------------
+  // Dynamic Color Aura Switcher (Streetwear Palette Controller)
+  // ---------------------------------------------------------------------------
+  function setupAuraColor() {
+    const auraSelect = document.getElementById('auraColorSelect');
+    const auraBtns = document.querySelectorAll('.typography-quick-dock .dock-aura-btn');
+
+    let savedAura = localStorage.getItem('aercious_color_aura') || 'cobalt';
+
+    function applyAura(auraKey, notify = false) {
+      if (!auraKey) return;
+      document.documentElement.setAttribute('data-aura', auraKey);
+      localStorage.setItem('aercious_color_aura', auraKey);
+
+      if (auraSelect) {
+        auraSelect.value = auraKey;
+      }
+
+      auraBtns.forEach(btn => {
+        if (btn.dataset.aura === auraKey) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      if (notify) {
+        const labels = {
+          cobalt: '⚡ ELECTRIC COBALT',
+          solar: '🔥 SOLAR FLAME',
+          acid: '🧪 VOLT ACID LIME',
+          violet: '🔮 IMPERIAL VIOLET',
+          cyber: '💎 CYBER CYAN'
+        };
+        showLuxuryToast(`COLOR AURA: ${labels[auraKey] || auraKey.toUpperCase()} ACTIVATED`);
+      }
+    }
+
+    // Apply active aura immediately on boot
+    applyAura(savedAura, false);
+
+    // Header selector listener
+    if (auraSelect) {
+      auraSelect.addEventListener('change', (e) => {
+        applyAura(e.target.value, true);
+      });
+    }
+
+    // Quick dock aura buttons listener
+    auraBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const auraKey = btn.dataset.aura;
+        applyAura(auraKey, true);
       });
     });
   }
