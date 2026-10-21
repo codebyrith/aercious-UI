@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AERCIOUS — Avant-Garde Minimalist Luxury Streetwear</title>
+  
+  <meta name="description" content="AERCIOUS is a minimalist high-end luxury streetwear brand blending heavy cotton, boxy architectural fits, and limited drop archives inspired by underground fashion.">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AERCIOUS — Luxury Minimalist Streetwear">
+  <meta property="og:description" content="Shop limited drop oversized graphic tees and acid wash streetwear essentials.">
+  <meta property="og:image" content="assets/images/skull-demon-back.jpg">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. Top Announcement Marquee Ticker
+       ========================================================================== -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="ticker-track">
+      <div class="ticker-item">
+        <span>⚡ 10% OFF ON PREPAID ORDERS</span>
+        <span class="ticker-separator">///</span>
+        <span>FREE EXPRESS SHIPPING OVER ₹2,999</span>
+        <span class="ticker-separator">///</span>
+        <span>LIMITED DROP 01: SKULL DEMON & ACID WASH OVERSIZED TEES NOW LIVE</span>
+        <span class="ticker-separator">///</span>
+        <span>280 GSM HEAVY COMBED COTTON ARCHIVES</span>
+        <span class="ticker-separator">///</span>
+        <span>DISPATCH WITHIN 24 HOURS ACROSS INDIA & WORLDWIDE</span>
+        <span class="ticker-separator">///</span>
+      </div>
+      <!-- Duplicate for infinite seamless marquee -->
+      <div class="ticker-item" aria-hidden="true">
+        <span>⚡ 10% OFF ON PREPAID ORDERS</span>
+        <span class="ticker-separator">///</span>
+        <span>FREE EXPRESS SHIPPING OVER ₹2,999</span>
+        <span class="ticker-separator">///</span>
+        <span>LIMITED DROP 01: SKULL DEMON & ACID WASH OVERSIZED TEES NOW LIVE</span>
+        <span class="ticker-separator">///</span>
+        <span>280 GSM HEAVY COMBED COTTON ARCHIVES</span>
+        <span class="ticker-separator">///</span>
+        <span>DISPATCH WITHIN 24 HOURS ACROSS INDIA & WORLDWIDE</span>
+        <span class="ticker-separator">///</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. Clean Crisp White Sticky Header
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      
+      <!-- Left Navigation Links -->
+      <nav class="header-nav">
+        <a href="#home" class="nav-link active" data-page="home">HOME</a>
+        <a href="#shop" class="nav-link" data-page="shop">COLLECTION</a>
+        <a href="#about" class="nav-link" data-page="about">ABOUT US</a>
+        <a href="#contact" class="nav-link" data-page="contact">CONTACT</a>
+      </nav>
+
+      <!-- Center Logo -->
+      <div class="header-center">
+        <a href="#home" class="brand-logo" onclick="window.navigateTo('home')">
+          AERCIOUS
+        </a>
+        <span class="brand-sub">TOKYO // MUMBAI // PARIS</span>
+      </div>
+
+      <!-- Right Utility Tools -->
+      <div class="header-right">
+        <!-- Heading Typography Font Switcher -->
+        <select class="font-select" id="headingFontSelect" aria-label="Heading Typography Selector" title="Switch Heading Font Style">
+          <option value="syncopate" selected>FONT: SYNCOPATE (WIDE STREETWEAR)</option>
+          <option value="unbounded">FONT: UNBOUNDED (AVANT-GARDE)</option>
+          <option value="outfit">FONT: OUTFIT (MODERN GROTESQUE)</option>
+          <option value="space">FONT: SPACE GROTESK (BRUTALIST)</option>
+          <option value="bodoni">FONT: BODONI MODA (COUTURE SERIF)</option>
+          <option value="bebas">FONT: BEBAS NEUE (CONDENSED)</option>
+          <option value="cinzel">FONT: CINZEL (ROMAN SERIF)</option>
+        </select>
+
+        <!-- Currency Selector -->
+        <select class="currency-select" id="currencySelect" aria-label="Currency Selector">
+          <option value="INR">INR (₹)</option>
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+        </select>
+
+        <!-- Shopping Bag Trigger -->
+        <button class="header-cart-btn" id="cartTriggerBtn" aria-label="View Shopping Bag">
+          <span>BAG</span>
+          <span id="cartCountBadge">[ 0 ]</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       PAGE VIEW 1: HOME PAGE
+       ========================================================================== -->
+  <main class="page-view active-view" id="pageHome">
+    
+    <!-- 3D Banner Video Section with Floating Typography -->
+    <section class="hero-3d-section" id="hero3DSection">
+      <div class="hero-video-container">
+        <video class="hero-video-elem" autoplay loop muted playsinline poster="assets/images/hero-editorial.jpg">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-in-an-urban-setting-42777-large.mp4" type="video/mp4">
+          <img src="assets/images/hero-editorial.jpg" alt="Aercious Hero Video Fallback" />
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+
+      <div class="hero-3d-stage">
+        <div class="hero-3d-floating-box" id="hero3DFloatingBox">
+          <div class="hero-badge-capsule">
+            <span>● DROP 01 // ARCHIVAL OVERSIZED TEES</span>
+          </div>
+
+          <h1 class="hero-3d-headline">
+            ALL EYES <span class="outline">ON YOU</span>
+          </h1>
+
+          <p class="hero-3d-desc">
+            Brutalist architectural silhouettes engineered in <strong>280 GSM custom combed cotton</strong>. High-density gothic demon artworks and artisanal mineral acid washes.
+          </p>
+
+          <div class="hero-3d-actions">
+            <button class="btn-aer-black" onclick="window.navigateTo('shop')">
+              EXPLORE COLLECTION
+            </button>
+            <button class="btn-aer-ghost" onclick="window.navigateTo('pdp', 'skull-demon-tee')">
+              VIEW SKULL DEMON TEE
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Showcase (2 Products Only) -->
+    <section class="showcase-section" id="featuredSection">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tagline">LIMITED DROP 01 CATALOG</span>
+          <h2 class="section-title">THE FLAGSHIP DROP</h2>
+          <p class="section-subtitle">
+            Two distinct expressions of modern luxury streetwear. Detailed front-and-back artwork, strike-through sizes, and instant dispatch.
+          </p>
+        </div>
+
+        <!-- Duo Grid -->
+        <div class="products-duo-grid" id="homeProductsGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Shop by Video: High-Fashion Editorial Reels
+         ========================================================================== -->
+    <section class="shop-by-video-section" id="shopByVideoSection">
+      <div class="container">
+        <div class="section-head-split">
+          <div>
+            <span class="section-tagline">// EDITORIAL MOTION ARCHIVE</span>
+            <h2 class="section-title">SHOP BY VIDEO</h2>
+            <p class="section-subtitle">
+              Experience the 280 GSM fabric drape, boxy drop shoulders, and motion in real-time. Hover or tap to play reels and shop pieces instantly.
+            </p>
+          </div>
+          <div class="video-section-badge">
+            <span class="live-recording-dot"></span> 4 EDITORIAL REELS
+          </div>
+        </div>
+
+        <!-- Video Reels Grid -->
+        <div class="video-reels-grid" id="videoReelsGrid">
+          <!-- Populated dynamically by app.js from reels.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         About the Brand: Refined Brutalist Doctrine & Atelier
+         ========================================================================== -->
+    <section class="home-about-brand-section" id="homeAboutBrandSection">
+      <div class="container">
+        <div class="home-about-grid">
+          
+          <!-- Left Column: Manifesto & Architecture -->
+          <div class="home-about-content">
+            <span class="section-tagline">// THE AERCIOUS DOCTRINE</span>
+            <h2 class="about-brand-heading">
+              AVANT-GARDE MINIMALISM. <br>
+              <span class="outline-dark">UNCOMPROMISING WEIGHT.</span>
+            </h2>
+            
+            <p class="about-lead-para">
+              <strong>AERCIOUS</strong> was established on a single unapologetic premise: the total rejection of thin, disposable fast-fashion. We engineer brutalist, architectural silhouettes using custom <strong>280 GSM heavy combed cotton</strong> that holds its monolithic shape without collapsing.
+            </p>
+
+            <p class="about-sub-para">
+              Every drop is produced in finite archival batches capped at strictly 150 pieces worldwide. Finished with artisanal stone-mineral enzyme washes, high-density gothic puff prints, and shape-retention collars built to outlive seasons.
+            </p>
+
+            <!-- Brand Pillars List -->
+            <div class="brand-pillars-compact">
+              <div class="pillar-compact-item">
+                <span class="pillar-num">01</span>
+                <div>
+                  <strong>280 GSM MONOLITHIC KNIT</strong>
+                  <p>Custom-spun combed loopback cotton that holds its geometric boxy silhouette all day.</p>
+                </div>
+              </div>
+
+              <div class="pillar-compact-item">
+                <span class="pillar-num">02</span>
+                <div>
+                  <strong>1.25" SHAPE-RETENTION COLLAR</strong>
+                  <p>Dense shape-retention ribbing with dual-track herringbone tape. Guaranteed zero collar baconing.</p>
+                </div>
+              </div>
+
+              <div class="pillar-compact-item">
+                <span class="pillar-num">03</span>
+                <div>
+                  <strong>FINITE ARCHIVE CAP (150 PCS)</strong>
+                  <p>Cryptographically numbered certificate tags. Once sold out, archival colorways are retired forever.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="home-about-cta-row">
+              <button class="btn-aer-black" onclick="window.navigateTo('about')">
+                EXPLORE COMPLETE MANIFESTO
+              </button>
+              <button class="btn-aer-ghost" onclick="window.navigateTo('shop')">
+                VIEW DROP 01 ARCHIVES
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Atelier Showcase -->
+          <div class="home-about-visual-col">
+            <div class="atelier-visual-card">
+              <div class="atelier-image-wrap">
+                <img src="assets/images/flagship-store.jpg" alt="AERCIOUS Flagship Atelier" class="atelier-img" />
+                <div class="atelier-overlay-badge">
+                  <span class="badge-studio-dot"></span>
+                  <span>MUMBAI FLAGSHIP ATELIER // KALA GHODA</span>
+                </div>
+              </div>
+
+              <div class="atelier-secondary-row">
+                <div class="atelier-thumb-wrap">
+                  <img src="assets/images/hero-editorial.jpg" alt="Fabric Geometry" />
+                </div>
+                <div class="atelier-meta-box">
+                  <span class="meta-label">ATELIER DIRECTORY:</span>
+                  <p>14 Forbes Street, Kala Ghoda, Fort, Mumbai 400001</p>
+                  <span class="meta-hours">PRIVATE FITTINGS BY APPOINTMENT // MON - SAT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Fashion Video Lookbook: Runway & Streetwear Motion
+         ========================================================================== -->
+    <section class="lookbook-section" id="fashionLookbookSection">
+      <div class="container">
+        <div class="lookbook-duo">
+          <div class="lookbook-media">
+            <video id="lookbookVideo" autoplay loop muted playsinline poster="assets/images/hero-editorial.jpg">
+              <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_1_of_4.webm/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_1_of_4.webm.480p.vp9.webm" type="video/webm">
+              <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+              <img src="assets/images/hero-editorial.jpg" alt="Aercious Fashion Editorial" />
+            </video>
+            
+            <div class="lookbook-video-overlay-ctrls">
+              <button class="btn-video-overlay-ctrl" id="lookbookPlayToggle" aria-label="Toggle Play/Pause">
+                <span id="lookbookPlayIcon">❚❚</span>
+              </button>
+              <button class="btn-video-overlay-ctrl" id="lookbookMuteToggle" aria-label="Toggle Audio">
+                <span id="lookbookMuteIcon">🔇</span>
+              </button>
+              <div class="lookbook-video-badge">
+                <span class="live-rec-dot"></span> BERLIN RUNWAY ARCHIVE
+              </div>
+            </div>
+          </div>
+
+          <div class="lookbook-text">
+            <span class="section-tagline">STYLING & MOTION ARCHIVE</span>
+            <h3>FEEL THE LUXURY OF HEAVYWEIGHT COTTON</h3>
+            <p>
+              Aercious rejects disposable fashion. We develop custom 280 GSM loopback cotton knits with shape-retention collar tape and dropped architectural shoulders. Paired with wide-leg denim or modular cargos, our silhouettes stand out without saying a word.
+            </p>
+            <div class="lookbook-specs-mini">
+              <span>✦ 280 GSM COMBED KNIT</span>
+              <span>✦ EXTENDED ELBOW SLEEVES</span>
+              <span>✦ STONE-MINERAL WASH</span>
+            </div>
+            <button class="btn-aer-black" onclick="window.navigateTo('shop')">
+              SHOP DROP 01 NOW
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FAQ Section: Sizing, Textiles, Care & Shipping
+         ========================================================================== -->
+    <section class="home-faq-section" id="homeFAQSection">
+      <div class="container container-narrow">
+        <div class="section-head text-center">
+          <span class="section-tagline">// CLIENT CONCIERGE & CARE</span>
+          <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+          <p class="section-subtitle">
+            Essential guidance regarding our 280 GSM silhouettes, drop caps, sizing architecture, and express shipping.
+          </p>
+        </div>
+
+        <div class="faq-accordion-group" id="homeFAQAccordion">
+          <!-- Populated dynamically by app.js with smooth toggles -->
+        </div>
+
+        <!-- Concierge Direct WhatsApp Callout -->
+        <div class="faq-concierge-callout">
+          <div class="concierge-callout-text">
+            <h4>STILL HAVE QUESTIONS ABOUT SIZING OR TEXTILES?</h4>
+            <p>Our Mumbai flagship atelier stylist is on call 7 days a week on WhatsApp for personalized fit recommendations and order assistance.</p>
+          </div>
+          <a href="https://wa.me/919820123456?text=Hi%20Aercious%20Stylist,%20I'm%20inquiring%20about%20Drop%2001%20sizing%20and%20fits." target="_blank" class="btn-concierge-whatsapp" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.761.947 2.796.947 3.179 0 5.766-2.587 5.767-5.766.001-3.181-2.585-5.768-5.767-5.768zm3.397 8.232c-.145.409-.838.777-1.168.826-.328.049-.757.078-2.196-.519-1.841-.762-3.033-2.646-3.125-2.769-.092-.123-.745-.99-.745-1.888s.471-1.341.638-1.523c.168-.182.368-.228.49-.228.123 0 .245.002.353.007.114.005.267-.043.418.321.154.372.525 1.282.571 1.375.046.092.077.2.015.323-.062.123-.092.2-.184.308-.092.107-.194.24-.276.323-.093.092-.19.193-.082.378.107.185.478.788 1.025 1.276.705.628 1.299.823 1.484.915.185.092.293.077.4-.046.108-.123.461-.537.584-.722.123-.184.246-.153.415-.092.169.062 1.076.507 1.261.599.185.092.308.138.354.215.046.077.046.446-.099.855z"/></svg>
+            <span>CHAT WITH STYLIST (WHATSAPP)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       PAGE VIEW 2: SHOP / COLLECTION PAGE
+       ========================================================================== -->
+  <section class="page-view shop-page-section" id="pageShop">
+    <div class="container">
+      
+      <div class="collection-header-row">
+        <div>
+          <span class="section-tagline">ARCHIVAL RELEASE</span>
+          <h2 class="section-title">COLLECTION // DROP 01</h2>
+          <p class="section-subtitle">Featuring our 2 signature oversized t-shirt drops. Available while limited supplies last.</p>
+        </div>
+        <div class="collection-count-badge">
+          [ SHOWING 2 OF 2 PIECES ]
+        </div>
+      </div>
+
+      <!-- Shop Duo Grid -->
+      <div class="products-duo-grid" id="shopProductsGrid">
+        <!-- Rendered by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PAGE VIEW 3: PRODUCT DETAIL PAGE (PDP)
+       ========================================================================== -->
+  <section class="page-view pdp-section" id="pagePDP">
+    <div class="container">
+      
+      <!-- Back Link -->
+      <div class="pdp-back-link" id="pdpBackBtn">
+        ← BACK TO COLLECTION
+      </div>
+
+      <div class="pdp-grid">
+        
+        <!-- Left: Gallery with Thumbnails -->
+        <div class="pdp-gallery-wrap">
+          <div class="pdp-thumbnails" id="pdpThumbnails">
+            <!-- Thumbnail buttons injected by app.js -->
+          </div>
+
+          <div class="pdp-main-image-wrap">
+            <img class="pdp-main-image" id="pdpMainImage" src="assets/images/skull-demon-back.jpg" alt="Product Image" />
+          </div>
+        </div>
+
+        <!-- Right: Information & Actions -->
+        <div class="pdp-info-col">
+          <span class="pdp-badge" id="pdpBadge">UNDERGROUND SYNDICATE DROP 01</span>
+          <h1 class="pdp-title" id="pdpTitle">SKULL DEMON GRAPHIC OVERSIZED TEE</h1>
+
+          <!-- Price & Offer Row -->
+          <div class="pdp-pricing-wrap">
+            <div class="pdp-pricing-row">
+              <span class="pdp-price-active" id="pdpPriceActive">₹ 1,999</span>
+              <span class="pdp-price-compare" id="pdpPriceCompare">₹ 3,499</span>
+              <span class="pdp-offer-badge" id="pdpOfferBadge">⚡ LAUNCH PREPAID OFFER — 43% OFF</span>
+            </div>
+            <p class="pdp-tax-note">Inclusive of all taxes. Free express delivery on prepaid orders.</p>
+          </div>
+
+          <!-- Size Selector with Clean Strike-Through Line -->
+          <div class="pdp-size-header">
+            <span class="pdp-size-title">SIZE: <span id="pdpSelectedSizeText">M</span></span>
+            <span class="pdp-size-guide-btn" onclick="document.querySelectorAll('.accordion-item')[2]?.classList.add('active'); window.scrollTo({ top: 600, behavior: 'smooth' });">
+              [ VIEW MEASUREMENTS ]
+            </span>
+          </div>
+
+          <div class="pdp-size-row" id="pdpSizeRow">
+            <!-- Rendered by app.js with out-of-stock strike-throughs -->
+          </div>
+
+          <!-- Quantity & Add to Cart -->
+          <div class="pdp-actions-row">
+            <div class="pdp-qty-stepper">
+              <button class="pdp-qty-btn" id="pdpQtyMinus" aria-label="Decrease Quantity">-</button>
+              <span class="pdp-qty-display" id="pdpQtyVal">1</span>
+              <button class="pdp-qty-btn" id="pdpQtyPlus" aria-label="Increase Quantity">+</button>
+            </div>
+
+            <button class="btn-pdp-add" id="pdpAddBtn">
+              ADD TO SHOPPING BAG
+            </button>
+          </div>
+
+          <!-- Instant WhatsApp Integration Button -->
+          <a href="#" target="_blank" class="pdp-whatsapp-btn" id="pdpWhatsAppBtn" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.761.947 2.796.947 3.179 0 5.766-2.587 5.767-5.766.001-3.181-2.585-5.768-5.767-5.768zm3.397 8.232c-.145.409-.838.777-1.168.826-.328.049-.757.078-2.196-.519-1.841-.762-3.033-2.646-3.125-2.769-.092-.123-.745-.99-.745-1.888s.471-1.341.638-1.523c.168-.182.368-.228.49-.228.123 0 .245.002.353.007.114.005.267-.043.418.321.154.372.525 1.282.571 1.375.046.092.077.2.015.323-.062.123-.092.2-.184.308-.092.107-.194.24-.276.323-.093.092-.19.193-.082.378.107.185.478.788 1.025 1.276.705.628 1.299.823 1.484.915.185.092.293.077.4-.046.108-.123.461-.537.584-.722.123-.184.246-.153.415-.092.169.062 1.076.507 1.261.599.185.092.308.138.354.215.046.077.046.446-.099.855z"/>
+            </svg>
+            <span>CHAT WITH STYLIST (INQUIRE ON WHATSAPP)</span>
+          </a>
+
+          <!-- PDP Collapsible Accordion System -->
+          <div class="pdp-accordion-group" id="pdpAccordions">
+            <!-- 5 Accordions injected dynamically by app.js -->
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ==========================================================================
+           PDP Customer Review Section & Fit Feedback
+           ========================================================================== -->
+      <section class="pdp-reviews-section" id="pdpReviewsSection">
+        <div class="reviews-section-header">
+          <div>
+            <span class="section-tagline">// ARCHIVAL CLIENT DOSSIER</span>
+            <h2 class="reviews-section-title">VERIFIED CLIENT REVIEWS</h2>
+            <p class="reviews-section-sub">
+              Authentic feedback from verified Drop 01 archivists. Unfiltered reviews on 280 GSM fabric density, collar longevity, and boxy proportions.
+            </p>
+          </div>
+          <button class="btn-open-review-modal" id="btnOpenReviewModal">
+            + WRITE AN ARCHIVE REVIEW
+          </button>
+        </div>
+
+        <!-- Rating Overview Metrics Dashboard -->
+        <div class="reviews-metrics-panel">
+          
+          <!-- Col 1: Big Score & Recommendation -->
+          <div class="metric-score-card">
+            <span class="metric-eyebrow">OVERALL ARCHIVE SCORE</span>
+            <div class="metric-big-rating">
+              <span class="rating-num" id="pdpAvgRating">4.96</span>
+              <div class="rating-stars-col">
+                <div class="rating-stars-gold">★★★★★</div>
+                <span class="rating-count-text" id="pdpReviewCountText">Based on 84 Verified Buyers</span>
+              </div>
+            </div>
+            <div class="metric-recommend-tag">
+              <span class="rec-dot"></span> 98% OF CLIENTS RECOMMEND THIS DROP
+            </div>
+          </div>
+
+          <!-- Col 2: Star Breakdown Bars -->
+          <div class="metric-breakdown-card">
+            <div class="rating-bar-row">
+              <span class="star-label">5 ★</span>
+              <div class="star-track"><div class="star-fill" style="width: 94%;"></div></div>
+              <span class="pct-label">94%</span>
+            </div>
+            <div class="rating-bar-row">
+              <span class="star-label">4 ★</span>
+              <div class="star-track"><div class="star-fill" style="width: 5%;"></div></div>
+              <span class="pct-label">5%</span>
+            </div>
+            <div class="rating-bar-row">
+              <span class="star-label">3 ★</span>
+              <div class="star-track"><div class="star-fill" style="width: 1%;"></div></div>
+              <span class="pct-label">1%</span>
+            </div>
+            <div class="rating-bar-row">
+              <span class="star-label">2 ★</span>
+              <div class="star-track"><div class="star-fill" style="width: 0%;"></div></div>
+              <span class="pct-label">0%</span>
+            </div>
+            <div class="rating-bar-row">
+              <span class="star-label">1 ★</span>
+              <div class="star-track"><div class="star-fill" style="width: 0%;"></div></div>
+              <span class="pct-label">0%</span>
+            </div>
+          </div>
+
+          <!-- Col 3: Streetwear Fit & Textile Durability -->
+          <div class="metric-fit-card">
+            <span class="metric-eyebrow">STREETWEAR FIT CONSENSUS</span>
+            
+            <div class="fit-gauge-wrap">
+              <div class="fit-gauge-bar">
+                <div class="fit-gauge-indicator" style="left: 68%;"></div>
+              </div>
+              <div class="fit-gauge-labels">
+                <span>SLIM</span>
+                <strong class="fit-highlight">BOXY OVERSIZED (94%)</strong>
+                <span>BAGGY</span>
+              </div>
+            </div>
+
+            <div class="fit-specs-checklist">
+              <div class="spec-check-item">
+                <span class="check-mark">✓</span>
+                <span><strong>280 GSM Weight:</strong> 100% Confirmed Heavy Drape</span>
+              </div>
+              <div class="spec-check-item">
+                <span class="check-mark">✓</span>
+                <span><strong>Shape-Retention Collar:</strong> Zero Baconing Reported</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Filter Pills Bar -->
+        <div class="reviews-filter-bar">
+          <div class="review-pills-row" id="reviewFilterPillsRow">
+            <button class="review-filter-pill active" data-filter="all">
+              ALL REVIEWS (<span id="filterCountAll">84</span>)
+            </button>
+            <button class="review-filter-pill" data-filter="photos">
+              WITH PHOTOS (<span id="filterCountPhotos">26</span>)
+            </button>
+            <button class="review-filter-pill" data-filter="5stars">
+              5 STARS ONLY (<span id="filterCount5Stars">79</span>)
+            </button>
+            <button class="review-filter-pill" data-filter="verified">
+              VERIFIED ARCHIVISTS (<span id="filterCountVerified">84</span>)
+            </button>
+          </div>
+        </div>
+
+        <!-- Reviews Cards Dynamic List -->
+        <div class="reviews-cards-list" id="pdpReviewsList">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+      </section>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PAGE VIEW 4: ABOUT US PAGE
+       ========================================================================== -->
+  <section class="page-view about-page-section" id="pageAbout">
+    <div class="container">
+      <div class="about-hero-box">
+        <span class="section-tagline">OUR MANIFESTO</span>
+        <h2 class="about-headline">FEEL THE LUXURY OF REFINED BRUTALISM</h2>
+        <p class="about-manifesto">
+          <strong>AERCIOUS</strong> was born from a refusal to accept thin, disposable streetwear. We design heavy, structured pieces tailored with architectural proportions, 280 GSM combed cotton knits, and hand-executed artisanal treatments.
+        </p>
+      </div>
+
+      <div class="about-pillars-grid">
+        <div class="about-pillar-card">
+          <h4>01 // HEAVYWEIGHT TEXTILES</h4>
+          <p>
+            Custom 280 GSM cotton knit with loopback fleece lining. Thick 1.25-inch shape-retention ribbed collars that never bacon or deform.
+          </p>
+        </div>
+
+        <div class="about-pillar-card">
+          <h4>02 // ARTISANAL ACID FINISHES</h4>
+          <p>
+            Each acid-washed garment undergoes stone-mineral enzyme washes, ensuring individual texture and weathered vintage drape.
+          </p>
+        </div>
+
+        <div class="about-pillar-card">
+          <h4>03 // FINITE ARCHIVES</h4>
+          <p>
+            No mass overproduction. Drops are capped at 150 pieces per run with cryptographically registered authenticity tags.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PAGE VIEW 5: CONTACT US PAGE
+       ========================================================================== -->
+  <section class="page-view contact-page-section" id="pageContact">
+    <div class="container">
+      <div class="contact-layout">
+        
+        <!-- Info Column -->
+        <div class="contact-info-col">
+          <span class="section-tagline">CLIENT CONCIERGE</span>
+          <h2>CONNECT WITH AERCIOUS</h2>
+          <p>
+            Whether you need sizing advice, order tracking, or bespoke private showroom appointments, our concierge team is on call.
+          </p>
+
+          <div class="contact-details-block">
+            <div class="contact-detail-item">
+              <h5>WHATSAPP STYLIST:</h5>
+              <p>+91 98201 23456 (10:00 AM — 10:00 PM IST)</p>
+            </div>
+            <div class="contact-detail-item">
+              <h5>DIRECT EMAIL:</h5>
+              <p>concierge@aercious.com</p>
+            </div>
+            <div class="contact-detail-item">
+              <h5>FLAGSHIP ATELIER:</h5>
+              <p>14 Forbes Street, Kala Ghoda, Fort, Mumbai 400001</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clean Form -->
+        <div class="contact-form-col">
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('MESSAGE SENT\\nOur stylist will respond within 2 hours.'); this.reset();">
+            <div class="form-group">
+              <label>FULL NAME</label>
+              <input type="text" class="form-input" placeholder="YOUR NAME..." required />
+            </div>
+
+            <div class="form-group">
+              <label>EMAIL ADDRESS</label>
+              <input type="email" class="form-input" placeholder="EMAIL@EXAMPLE.COM" required />
+            </div>
+
+            <div class="form-group">
+              <label>ORDER NUMBER (OPTIONAL)</label>
+              <input type="text" class="form-input" placeholder="AER-XXXXXX" />
+            </div>
+
+            <div class="form-group">
+              <label>YOUR MESSAGE</label>
+              <textarea class="form-textarea" placeholder="HOW CAN WE ASSIST YOU?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-aer-black" style="width: 100%;">
+              SUBMIT INQUIRY
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Slide-out Shopping Bag Cart Drawer
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">SHOPPING BAG <span id="cartCountBadge">[ 0 ]</span></h3>
+      <button class="cart-close-btn" id="cartCloseBtn">[ CLOSE ✕ ]</button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="cart-shipping-bar-wrap">
+      <div class="cart-shipping-text" id="shippingStatusText">
+        ADD ₹2,999 FOR COMPLIMENTARY SHIPPING
+      </div>
+      <div class="cart-progress-track">
+        <div class="cart-progress-fill" id="shippingProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Items List Body -->
+    <div class="cart-items-body" id="cartItemsBody">
+      <!-- Injected dynamically by app.js -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-line">
+        <span>SUBTOTAL</span>
+        <span id="cartSubtotal">₹ 0</span>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>EXPRESS SHIPPING</span>
+        <span>COMPLIMENTARY</span>
+      </div>
+
+      <div class="cart-total-line">
+        <span>ESTIMATED TOTAL</span>
+        <span id="cartGrandTotal">₹ 0</span>
+      </div>
+
+      <button class="btn-checkout" onclick="alert('PROCEEDING TO SECURE 256-BIT ENCRYPTED CHECKOUT\\nAll payment modes supported: UPI, Cards, NetBanking, GPay, PhonePe.')">
+        <span>PROCEED TO SECURE CHECKOUT</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Floating WhatsApp Instant Action Trigger
+       ========================================================================== -->
+  <a href="https://wa.me/919820123456?text=Hi%20Aercious%20Stylist,%20I'm%20inquiring%20about%20Drop%2001." 
+     target="_blank" 
+     class="floating-whatsapp-trigger" 
+     title="Chat with Stylist on WhatsApp" 
+     rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.761.947 2.796.947 3.179 0 5.766-2.587 5.767-5.766.001-3.181-2.585-5.768-5.767-5.768zm3.397 8.232c-.145.409-.838.777-1.168.826-.328.049-.757.078-2.196-.519-1.841-.762-3.033-2.646-3.125-2.769-.092-.123-.745-.99-.745-1.888s.471-1.341.638-1.523c.168-.182.368-.228.49-.228.123 0 .245.002.353.007.114.005.267-.043.418.321.154.372.525 1.282.571 1.375.046.092.077.2.015.323-.062.123-.092.2-.184.308-.092.107-.194.24-.276.323-.093.092-.19.193-.082.378.107.185.478.788 1.025 1.276.705.628 1.299.823 1.484.915.185.092.293.077.4-.046.108-.123.461-.537.584-.722.123-.184.246-.153.415-.092.169.062 1.076.507 1.261.599.185.092.308.138.354.215.046.077.046.446-.099.855z"/>
+    </svg>
+  </a>
+
+  <!-- ==========================================================================
+       Clean Minimalist White Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <div class="footer-col">
+          <h4 class="footer-col-title">AERCIOUS</h4>
+          <p class="footer-brand-bio">
+            High-end minimalist streetwear brand. Oversized architectural draping, 280 GSM heavyweight custom combed cotton, and finite numbered archives.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-link" aria-label="Instagram">IG</a>
+            <a href="#" class="social-icon-link" aria-label="YouTube">YT</a>
+            <a href="#" class="social-icon-link" aria-label="TikTok">TT</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">NAVIGATION</h4>
+          <ul class="footer-link-list">
+            <li><a href="#home" onclick="window.navigateTo('home')">Home</a></li>
+            <li><a href="#shop" onclick="window.navigateTo('shop')">Collection</a></li>
+            <li><a href="#about" onclick="window.navigateTo('about')">About Us</a></li>
+            <li><a href="#contact" onclick="window.navigateTo('contact')">Contact Concierge</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">POLICIES</h4>
+          <ul class="footer-link-list">
+            <li><a href="#" onclick="alert('7-day complimentary return & size exchange policy.')">Returns & Exchanges</a></li>
+            <li><a href="#" onclick="alert('Free express air delivery across India above ₹2,999.')">Shipping Guidelines</a></li>
+            <li><a href="#" onclick="alert('256-bit encrypted data protection.')">Privacy Policy</a></li>
+            <li><a href="#" onclick="alert('All pieces include NFC cryptographically signed serial tags.')">Authenticity Guarantee</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">PAYMENTS</h4>
+          <div class="payment-badges-grid">
+            <div class="payment-pill">UPI</div>
+            <div class="payment-pill">GPAY</div>
+            <div class="payment-pill">PHONEPE</div>
+            <div class="payment-pill">CARDS</div>
+            <div class="payment-pill">APPLE PAY</div>
+            <div class="payment-pill">PAYTM</div>
+            <div class="payment-pill">NETBANK</div>
+            <div class="payment-pill">EMI</div>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--color-text-muted);">
+            Discreet luxury packaging. Instant tracking on dispatch.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright">
+          © 2026 AERCIOUS. ALL RIGHTS RESERVED.
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-text-muted);">
+          DESIGNED FOR THE UNDERGROUND
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Write Review Interactive Modal
+       ========================================================================== -->
+  <div class="review-modal-overlay" id="reviewModalOverlay"></div>
+  <div class="review-modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewModalTitle">
+    <div class="review-modal-header">
+      <div>
+        <span class="section-tagline">// CLIENT SUBMISSION</span>
+        <h3 id="reviewModalTitle">WRITE AN ARCHIVAL REVIEW</h3>
+      </div>
+      <button class="review-modal-close" id="reviewModalClose" aria-label="Close Review Modal">[ CLOSE ✕ ]</button>
+    </div>
+
+    <form class="review-modal-form" id="reviewSubmitForm">
+      <div class="form-row-2">
+        <div class="form-group">
+          <label>YOUR NAME / PSEUDONYM *</label>
+          <input type="text" id="revInputName" class="form-input" placeholder="e.g. Yash S." required />
+        </div>
+        <div class="form-group">
+          <label>CITY / REGION *</label>
+          <input type="text" id="revInputLocation" class="form-input" placeholder="e.g. Mumbai, MH" required />
+        </div>
+      </div>
+
+      <div class="form-row-2">
+        <div class="form-group">
+          <label>RATING *</label>
+          <div class="star-rating-select" id="revStarSelect">
+            <span class="star-choice selected" data-value="5">★</span>
+            <span class="star-choice selected" data-value="4">★</span>
+            <span class="star-choice selected" data-value="3">★</span>
+            <span class="star-choice selected" data-value="2">★</span>
+            <span class="star-choice selected" data-value="1">★</span>
+            <span class="selected-star-label" id="revStarLabel">5.0 — FLAWLESS ARCHIVE</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>PURCHASED SIZE</label>
+          <select id="revInputSize" class="form-select">
+            <option value="S">Size S</option>
+            <option value="M" selected>Size M</option>
+            <option value="L">Size L</option>
+            <option value="XL">Size XL</option>
+            <option value="XXL">Size XXL</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>STREETWEAR FIT CONSENSUS</label>
+        <div class="fit-radio-group">
+          <label class="fit-radio-opt">
+            <input type="radio" name="fitChoice" value="Runs Slim" />
+            <span>Runs Slim</span>
+          </label>
+          <label class="fit-radio-opt">
+            <input type="radio" name="fitChoice" value="True to Boxy Oversized" checked />
+            <span>True to Boxy Oversized</span>
+          </label>
+          <label class="fit-radio-opt">
+            <input type="radio" name="fitChoice" value="Extra Oversized" />
+            <span>Extra Oversized</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>REVIEW HEADLINE *</label>
+        <input type="text" id="revInputTitle" class="form-input" placeholder="e.g. The 280 GSM weight is unreal..." required />
+      </div>
+
+      <div class="form-group">
+        <label>DETAILED FEEDBACK (FABRIC, COLLAR, DRAPE) *</label>
+        <textarea id="revInputBody" class="form-textarea" rows="4" placeholder="How does the fabric drape? How did the collar hold up after washing? Would you recommend this drop?" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-aer-black" style="width: 100%;">
+        SUBMIT VERIFIED ARCHIVAL REVIEW
+      </button>
+    </form>
+  </div>
+
+  <!-- ==========================================================================
+       Cinema Video Reel Lightbox Modal
+       ========================================================================== -->
+  <div class="cinema-reel-overlay" id="cinemaReelOverlay"></div>
+  <div class="cinema-reel-modal" id="cinemaReelModal" role="dialog" aria-modal="true">
+    <button class="cinema-close-btn" id="cinemaCloseBtn" aria-label="Close Cinema Player">[ CLOSE ✕ ]</button>
+    
+    <div class="cinema-content-split">
+      <!-- Left Video Screen -->
+      <div class="cinema-video-screen">
+        <video id="cinemaVideoPlayer" autoplay loop playsinline controls></video>
+      </div>
+
+      <!-- Right Shoppable Information -->
+      <div class="cinema-info-panel">
+        <span class="cinema-eyebrow" id="cinemaReelCollection">EDITORIAL MOTION</span>
+        <h3 class="cinema-title" id="cinemaReelTitle">REEL TITLE</h3>
+        <p class="cinema-notes" id="cinemaReelNotes">Outfit styling notes...</p>
+
+        <div class="cinema-product-card">
+          <img id="cinemaProductThumb" src="assets/images/skull-demon-back.jpg" alt="Product Thumbnail" class="cinema-thumb" />
+          <div class="cinema-prod-meta">
+            <h4 id="cinemaProductName">SKULL DEMON GRAPHIC TEE</h4>
+            <div class="cinema-price-row">
+              <span class="cinema-price" id="cinemaProductPrice">₹ 1,999</span>
+              <span class="cinema-badge">⚡ 280 GSM</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-aer-black" id="cinemaShopBtn" style="width: 100%; margin-top: 20px;">
+          VIEW PRODUCT DETAILS →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Interactive Typography Quick-Studio Dock
+       ========================================================================== -->
+  <div class="typography-quick-dock" id="typoDock" title="Live Heading Typography Previewer">
+    <span class="dock-title">TYPE:</span>
+    <button class="dock-btn active" data-font="syncopate">SYNCOPATE</button>
+    <button class="dock-btn" data-font="unbounded">UNBOUNDED</button>
+    <button class="dock-btn" data-font="outfit">OUTFIT</button>
+    <button class="dock-btn" data-font="space">SPACE</button>
+    <button class="dock-btn" data-font="bodoni">BODONI</button>
+    <button class="dock-btn" data-font="bebas">BEBAS</button>
+    <button class="dock-btn" data-font="cinzel">CINZEL</button>
+  </div>
+
+  <!-- App Script -->
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "reel-1",
+    "title": "SKULL DEMON 280 GSM BACK GRAPHIC MOTION",
+    "collection": "DROP 01 // SYNDICATE",
+    "productId": "skull-demon-tee",
+    "productName": "SKULL DEMON GRAPHIC OVERSIZED TEE",
+    "priceINR": 1999,
+    "comparePriceINR": 3499,
+    "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_1_of_4.webm/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_1_of_4.webm.480p.vp9.webm",
+    "poster": "assets/images/skull-demon-back.jpg",
+    "views": "284K",
+    "likes": "38.4K",
+    "outfitNotes": "280 GSM Combed Cotton • High-density stark white print • Size L on 6'0 model • Styled with Wide-Leg Modular Cargos."
+  },
+  {
+    "id": "reel-2",
+    "title": "ARTISANAL MINERAL ACID WASH DRAPE & FIT",
+    "collection": "DROP 01 // ARCHIVE",
+    "productId": "acid-wash-tee",
+    "productName": "ACID WASH MINIMALIST LOGO TEE",
+    "priceINR": 2199,
+    "comparePriceINR": 3699,
+    "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c3/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_2_of_4.webm/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_2_of_4.webm.480p.vp9.webm",
+    "poster": "assets/images/acid-wash-model-front.jpg",
+    "views": "192K",
+    "likes": "27.1K",
+    "outfitNotes": "Hand-executed stone mineral enzyme wash • Elbow-length dropped sleeve • Size M on 5'9 model • Styled with Raw Denim."
+  },
+  {
+    "id": "reel-3",
+    "title": "AVANT-GARDE ARCHITECTURAL SHAPE TEST",
+    "collection": "ATELIER EDITORIAL",
+    "productId": "skull-demon-tee",
+    "productName": "SKULL DEMON GRAPHIC OVERSIZED TEE",
+    "priceINR": 1999,
+    "comparePriceINR": 3499,
+    "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Holland_the_next_fashion_hub.webm/Holland_the_next_fashion_hub.webm.480p.vp9.webm",
+    "poster": "assets/images/hero-editorial.jpg",
+    "views": "415K",
+    "likes": "54.2K",
+    "outfitNotes": "Zero baconing 1.25\" collar test • Boxy torso drape holding structure in motion • Size XL on 6'2 model."
+  },
+  {
+    "id": "reel-4",
+    "title": "ATELIER RUNWAY // KALA GHODA TOKYO MOTION",
+    "collection": "FLAGSHIP COUTURE",
+    "productId": "acid-wash-tee",
+    "productName": "ACID WASH MINIMALIST LOGO TEE",
+    "priceINR": 2199,
+    "comparePriceINR": 3699,
+    "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_1_of_4.webm/Arrey_Enow_Fashion_Show_Berlin_September_2021%2C_part_1_of_4.webm.480p.vp9.webm",
+    "poster": "assets/images/flagship-store.jpg",
+    "views": "167K",
+    "likes": "22.6K",
+    "outfitNotes": "Limited archive run capped at 150 pieces worldwide • 24H dispatch • 10% prepaid privilege."
+  }
+]
