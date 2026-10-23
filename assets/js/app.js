@@ -895,69 +895,19 @@
   }
 
   function setupHeadingFont() {
+    // Permanent Official Brand Typography: Melloida Extra Bold & Pyapari Thin by Glyphminds Studio
+    const brandFontKey = 'brand-bold';
+    localStorage.setItem('aercious_heading_font', brandFontKey);
+    document.documentElement.setAttribute('data-heading-font', brandFontKey);
+
     const fontSelect = document.getElementById('headingFontSelect');
-    const getDockBtns = () => document.querySelectorAll('.typography-quick-dock .dock-btn, .atelier-font-recommendation-bar .font-pill-btn');
+    if (fontSelect) fontSelect.value = brandFontKey;
 
-    // Default to 'brand-bold' (Melloida Extra Bold by Glyphminds Studio)
-    let savedFont = localStorage.getItem('aercious_heading_font');
-    if (!savedFont || savedFont === 'cinzel' || savedFont === 'bebas' || savedFont === 'syncopate') {
-      savedFont = 'brand-bold';
-      localStorage.setItem('aercious_heading_font', 'brand-bold');
-    }
-
-    const labels = {
-      'brand-bold': 'MELLOIDA EXTRA BOLD (BRAND DISPLAY)',
-      'brand-thin': 'PYAPARI THIN (BRAND EDITORIAL)',
-      'syne': 'SYNE (AVANT-GARDE RUNWAY)',
-      'outfit': 'OUTFIT (MINIMALIST STREET)',
-      'unbounded': 'UNBOUNDED (EXTENDED BRUTALIST)',
-      'syncopate': 'SYNCOPATE (ARCHITECTURAL WIDE)',
-      'space': 'SPACE GROTESK (TECHNICAL)',
-      'bodoni': 'BODONI MODA (COUTURE SERIF)',
-      'bebas': 'BEBAS NEUE (POSTER CONDENSED)',
-      'cinzel': 'CINZEL (ROMAN LUXURY)'
-    };
-
-    function applyHeadingFont(fontKey, notify = false) {
-      if (!fontKey) return;
-      document.documentElement.setAttribute('data-heading-font', fontKey);
-      localStorage.setItem('aercious_heading_font', fontKey);
-
-      if (fontSelect) {
-        fontSelect.value = fontKey;
-      }
-
-      getDockBtns().forEach(btn => {
-        if (btn.dataset.font === fontKey) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-
-      if (notify) {
-        showLuxuryToast(`TYPOGRAPHY: ${labels[fontKey] || fontKey.toUpperCase()} APPLIED`);
-      }
-    }
-
-    // Apply active theme immediately
-    applyHeadingFont(savedFont, false);
-
-    // Header selector listener
-    if (fontSelect) {
-      fontSelect.addEventListener('change', (e) => {
-        applyHeadingFont(e.target.value, true);
-      });
-    }
-
-    // Quick dock & recommendations pill buttons listener (delegated or direct)
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.dock-btn, .font-pill-btn');
-      if (!btn) return;
-      e.preventDefault();
-      const fontKey = btn.dataset.font;
-      if (fontKey) {
-        applyHeadingFont(fontKey, true);
+    document.querySelectorAll('.typography-quick-dock .dock-btn, .atelier-font-recommendation-bar .font-pill-btn').forEach(btn => {
+      if (btn.dataset.font === brandFontKey || btn.dataset.font === 'melloida') {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
       }
     });
   }
