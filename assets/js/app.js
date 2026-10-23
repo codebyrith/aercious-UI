@@ -896,15 +896,27 @@
 
   function setupHeadingFont() {
     const fontSelect = document.getElementById('headingFontSelect');
-    const dockBtns = document.querySelectorAll('.typography-quick-dock .dock-btn');
+    const getDockBtns = () => document.querySelectorAll('.typography-quick-dock .dock-btn, .atelier-font-recommendation-bar .font-pill-btn');
 
-    // Default to 'syncopate' (Wide Architectural Streetwear)
-    // Migrate away from old trial fonts (cinzel, bebas, syne)
+    // Default to 'brand-bold' (Melloida Extra Bold by Glyphminds Studio)
     let savedFont = localStorage.getItem('aercious_heading_font');
-    if (!savedFont || savedFont === 'cinzel' || savedFont === 'bebas' || savedFont === 'syne') {
-      savedFont = 'syncopate';
-      localStorage.setItem('aercious_heading_font', 'syncopate');
+    if (!savedFont || savedFont === 'cinzel' || savedFont === 'bebas' || savedFont === 'syncopate') {
+      savedFont = 'brand-bold';
+      localStorage.setItem('aercious_heading_font', 'brand-bold');
     }
+
+    const labels = {
+      'brand-bold': 'MELLOIDA EXTRA BOLD (BRAND DISPLAY)',
+      'brand-thin': 'PYAPARI THIN (BRAND EDITORIAL)',
+      'syne': 'SYNE (AVANT-GARDE RUNWAY)',
+      'outfit': 'OUTFIT (MINIMALIST STREET)',
+      'unbounded': 'UNBOUNDED (EXTENDED BRUTALIST)',
+      'syncopate': 'SYNCOPATE (ARCHITECTURAL WIDE)',
+      'space': 'SPACE GROTESK (TECHNICAL)',
+      'bodoni': 'BODONI MODA (COUTURE SERIF)',
+      'bebas': 'BEBAS NEUE (POSTER CONDENSED)',
+      'cinzel': 'CINZEL (ROMAN LUXURY)'
+    };
 
     function applyHeadingFont(fontKey, notify = false) {
       if (!fontKey) return;
@@ -915,7 +927,7 @@
         fontSelect.value = fontKey;
       }
 
-      dockBtns.forEach(btn => {
+      getDockBtns().forEach(btn => {
         if (btn.dataset.font === fontKey) {
           btn.classList.add('active');
         } else {
@@ -924,15 +936,6 @@
       });
 
       if (notify) {
-        const labels = {
-          syncopate: 'SYNCOPATE (WIDE STREETWEAR)',
-          unbounded: 'UNBOUNDED (AVANT-GARDE)',
-          outfit: 'OUTFIT (MINIMALIST GROTESQUE)',
-          space: 'SPACE GROTESK (BRUTALIST)',
-          bodoni: 'BODONI MODA (COUTURE SERIF)',
-          bebas: 'BEBAS NEUE (CONDENSED POSTER)',
-          cinzel: 'CINZEL (ROMAN SERIF)'
-        };
         showLuxuryToast(`TYPOGRAPHY: ${labels[fontKey] || fontKey.toUpperCase()} APPLIED`);
       }
     }
@@ -947,13 +950,15 @@
       });
     }
 
-    // Quick dock buttons listener
-    dockBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const fontKey = btn.dataset.font;
+    // Quick dock & recommendations pill buttons listener (delegated or direct)
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.dock-btn, .font-pill-btn');
+      if (!btn) return;
+      e.preventDefault();
+      const fontKey = btn.dataset.font;
+      if (fontKey) {
         applyHeadingFont(fontKey, true);
-      });
+      }
     });
   }
 

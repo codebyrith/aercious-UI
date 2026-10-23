@@ -27,7 +27,24 @@
    Clean, Crisp White (#FFFFFF) & Sharp Black (#000000) Inspired by Driptrip & Bluorng
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Bodoni+Moda:opsz,wght@6..96,800;6..96,900&family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=Syncopate:wght@700&family=Unbounded:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Bodoni+Moda:opsz,wght@6..96,700;6..96,900&family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syncopate:wght@400;700&family=Syne:wght@500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap');
+
+/* Brand Fallback font aliases */
+@font-face {
+  font-family: 'Melloida';
+  src: local('Melloida Extra Bold'), local('Melloida-ExtraBold'), local('Melloida'), local('Syne ExtraBold');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pyapari';
+  src: local('Pyapari Thin'), local('Pyapari-Thin'), local('Pyapari'), local('Plus Jakarta Sans Thin');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --color-white: #ffffff;
@@ -66,11 +83,12 @@
   --aura-gradient-flame: linear-gradient(135deg, #ff3b00 0%, #ff7700 100%);
   --aura-gradient-volt: linear-gradient(135deg, #059669 0%, #10b981 50%, #ccff00 100%);
 
-  --font-display: 'Syncopate', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: 'Syncopate', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Official Brand Fonts: Melloida Extra Bold & Pyapari Thin by Glyphminds Studio */
+  --font-display: 'Melloida', 'Syne', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Melloida', 'Syne', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --heading-letter-spacing: 0.12em;
+  --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --heading-letter-spacing: -0.01em;
 
   --header-height: 80px;
   --ticker-height: 38px;
@@ -371,7 +389,25 @@
 }
 
 /* Typography Dynamic Themes */
-[data-heading-font="syncopate"], :root {
+[data-heading-font="brand-bold"], [data-heading-font="melloida"], :root {
+  --font-display: 'Melloida', 'Syne', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Melloida', 'Syne', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --heading-letter-spacing: -0.01em;
+}
+
+[data-heading-font="brand-thin"], [data-heading-font="pyapari"] {
+  --font-display: 'Pyapari', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Pyapari', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --heading-letter-spacing: 0.16em;
+}
+
+[data-heading-font="syne"] {
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --heading-letter-spacing: -0.01em;
+}
+
+[data-heading-font="syncopate"] {
   --font-display: 'Syncopate', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Syncopate', -apple-system, BlinkMacSystemFont, sans-serif;
   --heading-letter-spacing: 0.08em;
@@ -3548,11 +3584,12 @@ ul {
   justify-content: space-between;
   gap: 16px;
   cursor: pointer;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-family: var(--font-body);
+  font-size: 1.04rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
   color: var(--color-black);
   transition: color var(--transition-fast);
 }
@@ -4536,6 +4573,136 @@ ul {
   }
 }
 
+/* ==========================================================================
+   Interactive Typography Recommendations Bar
+   Allows users to instantly test and switch font aesthetics on the live site
+   ========================================================================== */
+.atelier-font-recommendation-bar {
+  background: #f8f8f9;
+  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
+  padding: 12px 0;
+  position: relative;
+  z-index: 20;
+}
+
+.font-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 0;
+}
+
+.font-bar-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.font-bar-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #000000;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.font-bar-sparkle {
+  color: #000000;
+}
+
+.font-pills-scroll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.font-pill-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #dcdce0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.font-pill-btn:hover {
+  border-color: #000000;
+  background: #f0f0f2;
+}
+
+.font-pill-btn.active {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.font-pill-btn .font-pill-badge {
+  font-size: 0.58rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #000000;
+  font-weight: 800;
+}
+
+.font-pill-btn.active .font-pill-badge {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Brand Manifesto Lead Callout */
+.about-brand-manifesto-lead {
+  max-width: 860px;
+  margin: 28px auto 0;
+  background: #ffffff;
+  border: 1px solid #000000;
+  padding: 28px 32px;
+  box-shadow: 6px 6px 0px #000000;
+  text-align: left;
+}
+
+.about-brand-manifesto-lead p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #111111;
+  font-weight: 500;
+}
+
+.about-brand-slogan-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #000000;
+  color: #ffffff;
+  padding: 6px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+
 
 
   </style>
@@ -4549,6 +4716,8 @@ ul {
     <div class="ticker-gradient-line"></div>
     <div class="ticker-track">
       <div class="ticker-item">
+        <span class="ticker-pill ticker-pill-volt">★ OWN YOUR STYLE. TOO GOOD TO IGNORE</span>
+        <span class="ticker-separator">///</span>
         <span class="ticker-pill ticker-pill-orange">⚡ 10% OFF ON PREPAID ORDERS</span>
         <span class="ticker-separator">///</span>
         <span class="ticker-pill ticker-pill-green">FREE EXPRESS SHIPPING OVER ₹2,999</span>
@@ -4562,6 +4731,8 @@ ul {
       </div>
       <!-- Duplicate for infinite seamless marquee -->
       <div class="ticker-item" aria-hidden="true">
+        <span class="ticker-pill ticker-pill-volt">★ OWN YOUR STYLE. TOO GOOD TO IGNORE</span>
+        <span class="ticker-separator">///</span>
         <span class="ticker-pill ticker-pill-orange">⚡ 10% OFF ON PREPAID ORDERS</span>
         <span class="ticker-separator">///</span>
         <span class="ticker-pill ticker-pill-green">FREE EXPRESS SHIPPING OVER ₹2,999</span>
@@ -4647,7 +4818,7 @@ ul {
       <div class="hero-3d-stage">
         <div class="hero-3d-floating-box" id="hero3DFloatingBox">
           <div class="hero-badge-capsule">
-            <span>● DROP 01 // ARCHIVAL OVERSIZED TEES</span>
+            <span>● OWN YOUR STYLE. TOO GOOD TO IGNORE</span>
           </div>
 
           <h1 class="hero-3d-headline">
@@ -4655,7 +4826,7 @@ ul {
           </h1>
 
           <p class="hero-3d-desc">
-            Brutalist architectural silhouettes engineered in <strong>280 GSM custom combed cotton</strong>. High-density gothic demon artworks and artisanal mineral acid washes.
+            Started as a passion between two young minds became a vision to change how the current and next generation sees fashion. Monolithic silhouettes engineered in <strong>280 GSM custom combed cotton</strong>.
           </p>
 
           <div class="hero-3d-actions">
@@ -4664,6 +4835,46 @@ ul {
             </button>
             <button class="btn-aer-ghost" onclick="window.navigateTo('pdp', 'skull-demon-tee')">
               VIEW SKULL DEMON TEE
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Interactive Typography Recommendations Bar
+         ========================================================================== -->
+    <section class="atelier-font-recommendation-bar" id="atelierFontBar" aria-label="Curated Typography Presets">
+      <div class="container">
+        <div class="font-bar-inner">
+          <div class="font-bar-label">
+            <span class="font-bar-sparkle">✦</span>
+            <span>BRAND TYPOGRAPHY:</span>
+          </div>
+          <div class="font-pills-scroll">
+            <button class="font-pill-btn active" data-font="brand-bold" title="Official Brand Font by Glyphminds Studio">
+              <span class="font-pill-badge">OFFICIAL</span> MELLOIDA (BOLD)
+            </button>
+            <button class="font-pill-btn" data-font="brand-thin" title="Official Brand Font by Glyphminds Studio">
+              <span class="font-pill-badge">OFFICIAL</span> PYAPARI (THIN)
+            </button>
+            <button class="font-pill-btn" data-font="syne" title="Avant-Garde Runway Display">
+              SYNE (AVANT-GARDE)
+            </button>
+            <button class="font-pill-btn" data-font="outfit" title="Modern Minimalist Street">
+              OUTFIT (MINIMALIST)
+            </button>
+            <button class="font-pill-btn" data-font="unbounded" title="Extended Heavy Grotesk">
+              UNBOUNDED
+            </button>
+            <button class="font-pill-btn" data-font="syncopate" title="Architectural Wide Display">
+              SYNCOPATE
+            </button>
+            <button class="font-pill-btn" data-font="space" title="Technical Grotesk">
+              SPACE GROTESK
+            </button>
+            <button class="font-pill-btn" data-font="bodoni" title="Haute Couture Serif">
+              BODONI MODA
             </button>
           </div>
         </div>
@@ -4982,9 +5193,17 @@ ul {
     <div class="container">
       
       <div class="about-hero-box">
-        <span class="section-tagline">OUR MANIFESTO // THE DOCTRINE</span>
+        <div class="about-brand-slogan-pill">★ OWN YOUR STYLE. TOO GOOD TO IGNORE</div>
+        <span class="section-tagline">OUR ORIGIN & PHILOSOPHY // THE MANIFESTO</span>
         <h2 class="about-headline">FEEL THE LUXURY OF REFINED RITUALISM</h2>
-        <p class="about-manifesto">
+        
+        <div class="about-brand-manifesto-lead">
+          <p>
+            Started as a passion between two young minds became a vision to change the way the current and next generation sees fashion. We created our brand to give teenagers and young adults the freedom to express who they are and not just through clothes, but through confidence, creativity, and individuality. From bold streetwear to effortless casuals, we create more than outfits. We create identity, inspire self-expression, and challenge the ordinary.
+          </p>
+        </div>
+
+        <p class="about-manifesto" style="margin-top: 24px;">
           <strong>AERCIOUS</strong> was born from the uncompromising rejection of thin, disposable fast-fashion. We engineer monolithic, architectural silhouettes tailored with custom <strong>280 GSM heavy combed cotton</strong> that holds its brutalist geometric drape without collapsing.
         </p>
       </div>
@@ -5100,10 +5319,10 @@ ul {
         
         <!-- Info Column -->
         <div class="contact-info-col">
-          <span class="section-tagline">CLIENT CONCIERGE</span>
+          <span class="section-tagline">OWN YOUR STYLE. TOO GOOD TO IGNORE</span>
           <h2>CONNECT WITH AIRSHARES</h2>
           <p>
-            Whether you need sizing advice, order tracking, private showroom fittings, or bespoke inquiries, our atelier stylists are on call 7 days a week.
+            Started as a passion between two young minds, AERCIOUS empowers you to express who you are through confidence, creativity, and individuality. Whether you need sizing advice, order tracking, private showroom fittings, or bespoke inquiries, our atelier stylists are on call 7 days a week.
           </p>
 
           <div class="contact-details-block">
@@ -5306,8 +5525,11 @@ ul {
         
         <div class="footer-col">
           <h4 class="footer-col-title">AERCIOUS</h4>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px;">
+            OWN YOUR STYLE. TOO GOOD TO IGNORE
+          </div>
           <p class="footer-brand-bio">
-            High-end minimalist streetwear brand. Oversized architectural draping, 280 GSM heavyweight custom combed cotton, and finite numbered archives.
+            Started as a passion between two young minds became a vision to change how the current and next generation sees fashion. We create identity, inspire self-expression, and challenge the ordinary.
           </p>
           <div class="footer-social-links">
             <a href="#" class="social-icon-link" aria-label="Instagram">IG</a>
@@ -5359,8 +5581,8 @@ ul {
         <div class="footer-copyright">
           © 2026 AERCIOUS. ALL RIGHTS RESERVED.
         </div>
-        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-text-muted);">
-          DESIGNED FOR THE UNDERGROUND
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-black); font-weight: 700; letter-spacing: 0.08em;">
+          OWN YOUR STYLE. TOO GOOD TO IGNORE
         </div>
       </div>
     </div>
@@ -5492,13 +5714,14 @@ ul {
        ========================================================================== -->
   <div class="typography-quick-dock" id="typoDock" title="Live Typography & Color Studio">
     <span class="dock-title">TYPE:</span>
-    <button class="dock-btn active" data-font="syncopate">SYNCOPATE</button>
-    <button class="dock-btn" data-font="unbounded">UNBOUNDED</button>
+    <button class="dock-btn active" data-font="brand-bold">★ MELLOIDA</button>
+    <button class="dock-btn" data-font="brand-thin">★ PYAPARI</button>
+    <button class="dock-btn" data-font="syne">SYNE</button>
     <button class="dock-btn" data-font="outfit">OUTFIT</button>
+    <button class="dock-btn" data-font="unbounded">UNBOUNDED</button>
+    <button class="dock-btn" data-font="syncopate">SYNCOPATE</button>
     <button class="dock-btn" data-font="space">SPACE</button>
     <button class="dock-btn" data-font="bodoni">BODONI</button>
-    <button class="dock-btn" data-font="bebas">BEBAS</button>
-    <button class="dock-btn" data-font="cinzel">CINZEL</button>
     
     <div class="dock-divider" aria-hidden="true"></div>
 
