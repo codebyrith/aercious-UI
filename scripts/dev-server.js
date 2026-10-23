@@ -40,6 +40,12 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
+      if (!path.extname(filePath)) {
+        const indexPath = path.join(BASE_DIR, 'index.html');
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': 'no-cache' });
+        fs.createReadStream(indexPath).pipe(res);
+        return;
+      }
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('404 Not Found: ' + reqUrl);
       return;

@@ -198,8 +198,15 @@
   window.navigateTo = navigateTo;
 
   function handleHashRouting() {
-    const rawHash = window.location.hash.replace(/^#\/?/, '') || 'home';
-    const [pageId, param] = rawHash.split('/');
+    let path = window.location.hash.replace(/^#\/?/, '');
+    if (!path) {
+      const pathname = window.location.pathname.replace(/^\/|\/$/g, '');
+      if (['contact', 'airshares', 'about', 'ritualism', 'shop'].includes(pathname) || pathname.startsWith('pdp/')) {
+        path = pathname;
+      }
+    }
+    const rawRoute = path || 'home';
+    const [pageId, param] = rawRoute.split('/');
 
     // Remove active view from all pages
     [DOM.pageHome, DOM.pageShop, DOM.pagePDP, DOM.pageAbout, DOM.pageContact].forEach(page => {
@@ -224,10 +231,10 @@
     } else if (pageId === 'shop') {
       DOM.pageShop?.classList.add('active-view');
       State.activePage = 'shop';
-    } else if (pageId === 'about') {
+    } else if (pageId === 'about' || pageId === 'ritualism') {
       DOM.pageAbout?.classList.add('active-view');
       State.activePage = 'about';
-    } else if (pageId === 'contact') {
+    } else if (pageId === 'contact' || pageId === 'airshares') {
       DOM.pageContact?.classList.add('active-view');
       State.activePage = 'contact';
     } else {
@@ -247,7 +254,11 @@
 
     if (DOM.pdpBackBtn) {
       DOM.pdpBackBtn.addEventListener('click', () => {
-        navigateTo('shop');
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          navigateTo('home');
+        }
       });
     }
   }

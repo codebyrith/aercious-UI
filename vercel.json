@@ -1,3 +1,11 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/contact", "destination": "/index.html" },
+    { "source": "/airshares", "destination": "/index.html" },
+    { "source": "/ritualism", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/shop", "destination": "/index.html" },
+    { "source": "/pdp/:id*", "destination": "/index.html" }
+  ]
 }
