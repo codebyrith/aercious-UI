@@ -60,7 +60,14 @@
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       
-      <!-- Left Navigation Links -->
+      <!-- Mobile Hamburger Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Navigation Menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Left Navigation Links (Desktop) -->
       <nav class="header-nav">
         <a href="#home" class="nav-link active" data-page="home">HOME</a>
         <a href="#shop" class="nav-link" data-page="shop">COLLECTION</a>
@@ -78,38 +85,22 @@
 
       <!-- Right Utility Tools -->
       <div class="header-right">
-        <!-- Color Aura Switcher -->
-        <select class="aura-select" id="auraColorSelect" aria-label="Color Palette Selector" title="Switch Color Aura Mood">
-          <option value="cobalt" selected>AURA: ⚡ ELECTRIC COBALT</option>
-          <option value="solar">AURA: 🔥 SOLAR FLAME</option>
-          <option value="acid">AURA: 🧪 VOLT ACID LIME</option>
-          <option value="violet">AURA: 🔮 IMPERIAL VIOLET</option>
-          <option value="cyber">AURA: 💎 CYBER CYAN</option>
-        </select>
+        <!-- Account / Person Icon Button -->
+        <button class="header-icon-btn" id="accountTriggerBtn" aria-label="Atelier Account" title="Atelier Account & Order Tracking">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
 
-        <!-- Heading Typography Font Switcher -->
-        <select class="font-select" id="headingFontSelect" aria-label="Heading Typography Selector" title="Switch Heading Font Style">
-          <option value="syncopate" selected>FONT: SYNCOPATE (WIDE STREETWEAR)</option>
-          <option value="unbounded">FONT: UNBOUNDED (AVANT-GARDE)</option>
-          <option value="outfit">FONT: OUTFIT (MODERN GROTESQUE)</option>
-          <option value="space">FONT: SPACE GROTESK (BRUTALIST)</option>
-          <option value="bodoni">FONT: BODONI MODA (COUTURE SERIF)</option>
-          <option value="bebas">FONT: BEBAS NEUE (CONDENSED)</option>
-          <option value="cinzel">FONT: CINZEL (ROMAN SERIF)</option>
-        </select>
-
-        <!-- Currency Selector -->
-        <select class="currency-select" id="currencySelect" aria-label="Currency Selector">
-          <option value="INR">INR (₹)</option>
-          <option value="USD">USD ($)</option>
-          <option value="EUR">EUR (€)</option>
-          <option value="GBP">GBP (£)</option>
-        </select>
-
-        <!-- Shopping Bag Trigger -->
-        <button class="header-cart-btn" id="cartTriggerBtn" aria-label="View Shopping Bag">
-          <span>BAG</span>
-          <span id="cartCountBadge">[ 0 ]</span>
+        <!-- Shopping Cart Icon Button with Counter Badge -->
+        <button class="header-icon-btn header-cart-icon-btn" id="cartTriggerBtn" aria-label="View Shopping Bag" title="Shopping Bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span id="cartCountBadge" class="header-cart-badge">0</span>
         </button>
       </div>
 
@@ -696,12 +687,107 @@
   </section>
 
   <!-- ==========================================================================
+       Mobile Slide-out Navigation Drawer
+       ========================================================================== -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-brand">AERCIOUS</span>
+      <button class="mobile-nav-close" id="mobileNavCloseBtn" aria-label="Close Navigation">[ CLOSE ✕ ]</button>
+    </div>
+    <div class="mobile-nav-body">
+      <nav class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-link active" data-page="home">01 // HOME</a>
+        <a href="#shop" class="mobile-nav-link" data-page="shop">02 // COLLECTION</a>
+        <a href="#about" class="mobile-nav-link" data-page="about">03 // ABOUT US</a>
+        <a href="#contact" class="mobile-nav-link" data-page="contact">04 // CONTACT</a>
+      </nav>
+
+      <div class="mobile-nav-divider"></div>
+
+      <div class="mobile-nav-section-title">CURRENCY // REGION</div>
+      <select class="currency-select mobile-currency-select" id="mobileCurrencySelect" aria-label="Select Currency">
+        <option value="INR">INR (₹) — INDIA</option>
+        <option value="USD">USD ($) — UNITED STATES</option>
+        <option value="EUR">EUR (€) — EUROPE</option>
+        <option value="GBP">GBP (£) — UNITED KINGDOM</option>
+      </select>
+
+      <div class="mobile-nav-divider"></div>
+
+      <div class="mobile-nav-section-title">QUICK ACCESS</div>
+      <div class="mobile-nav-actions">
+        <button class="mobile-action-btn" onclick="window.navigateTo('shop'); document.getElementById('mobileNavCloseBtn').click();">
+          VIEW DROP 01 ARCHIVE
+        </button>
+        <a href="https://wa.me/919820123456?text=Hi%20Aercious%20Concierge,%20I'm%20inquiring%20about%20Drop%2001." target="_blank" rel="noopener" class="mobile-action-btn mobile-wa-btn">
+          VIP CONCIERGE WHATSAPP
+        </a>
+      </div>
+    </div>
+    <div class="mobile-nav-footer">
+      <span>TOKYO // MUMBAI // PARIS</span>
+      <span class="mobile-nav-year">© 2026 AERCIOUS ATELIER</span>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       VIP Atelier Account Modal
+       ========================================================================== -->
+  <div class="account-modal-overlay" id="accountOverlay"></div>
+  <aside class="account-modal-drawer" id="accountDrawer" aria-label="VIP Account">
+    <div class="account-header">
+      <div>
+        <h3 class="account-title">ATELIER ACCOUNT</h3>
+        <span class="account-sub">CLIENT PORTAL // VIP ACCESS</span>
+      </div>
+      <button class="account-close-btn" id="accountCloseBtn">[ CLOSE ✕ ]</button>
+    </div>
+    <div class="account-body">
+      <!-- Member Status Card -->
+      <div class="account-status-card">
+        <div class="account-tier-badge">TIER 01 // ARCHIVE PASS</div>
+        <h4 class="account-member-name">AERCIOUS VIP CLIENT</h4>
+        <p class="account-status-desc">Early access unlocked for Drop 01: Skull Demon & Acid Wash Editions. Priority 24h global dispatch enabled.</p>
+      </div>
+
+      <!-- Live Order Tracker -->
+      <div class="account-section">
+        <div class="account-section-title">LIVE ORDER TRACKING</div>
+        <form class="account-track-form" onsubmit="event.preventDefault(); alert('SEARCHING GLOBAL DISPATCH LOGS...\\nOrder #AER-9824 is in transit via BlueDart Express (Mumbai Atelier -> Destination). Estimated arrival: Tomorrow.');">
+          <input type="text" class="account-track-input" placeholder="Enter Order ID (e.g. AER-9824)" required />
+          <button type="submit" class="account-track-btn">TRACK SHIPMENT</button>
+        </form>
+      </div>
+
+      <!-- Currency Preference -->
+      <div class="account-section">
+        <div class="account-section-title">STORE CURRENCY</div>
+        <select class="currency-select account-currency-select" id="accountCurrencySelect" aria-label="Account Currency Selector">
+          <option value="INR">INR (₹) — INDIAN RUPEE</option>
+          <option value="USD">USD ($) — US DOLLAR</option>
+          <option value="EUR">EUR (€) — EURO</option>
+          <option value="GBP">GBP (£) — BRITISH POUND</option>
+        </select>
+      </div>
+
+      <!-- Concierge Line -->
+      <div class="account-section">
+        <div class="account-section-title">PERSONAL ATELIER STYLIST</div>
+        <a href="https://wa.me/919820123456?text=Hi%20Aercious%20Stylist,%20I%20need%20sizing%20and%20styling%20guidance." target="_blank" rel="noopener" class="account-concierge-btn">
+          CONNECT WITH STYLIST (WHATSAPP)
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
        Slide-out Shopping Bag Cart Drawer
        ========================================================================== -->
   <div class="cart-drawer-overlay" id="cartOverlay"></div>
   <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
     <div class="cart-drawer-header">
-      <h3 class="cart-drawer-title">SHOPPING BAG <span id="cartCountBadge">[ 0 ]</span></h3>
+      <h3 class="cart-drawer-title">SHOPPING BAG <span id="cartDrawerCountTitle">[ 0 ]</span></h3>
       <button class="cart-close-btn" id="cartCloseBtn">[ CLOSE ✕ ]</button>
     </div>
 
@@ -963,7 +1049,8 @@
     <div class="dock-divider" aria-hidden="true"></div>
 
     <span class="dock-title">AURA:</span>
-    <button class="dock-aura-btn active" data-aura="cobalt" title="Electric Cobalt"><span class="aura-dot cobalt"></span>COBALT</button>
+    <button class="dock-aura-btn active" data-aura="none" title="No Color (Pure Monochrome)"><span class="aura-dot none"></span>NO COLOR</button>
+    <button class="dock-aura-btn" data-aura="cobalt" title="Electric Cobalt"><span class="aura-dot cobalt"></span>COBALT</button>
     <button class="dock-aura-btn" data-aura="solar" title="Solar Flame"><span class="aura-dot solar"></span>SOLAR</button>
     <button class="dock-aura-btn" data-aura="acid" title="Volt Acid Lime"><span class="aura-dot acid"></span>ACID</button>
     <button class="dock-aura-btn" data-aura="violet" title="Imperial Violet"><span class="aura-dot violet"></span>VIOLET</button>

@@ -159,6 +159,8 @@
     setupAuraColor();
     setup3DParallax();
     setupCartDrawer();
+    setupMobileNav();
+    setupAccountModal();
     setupLookbookVideo();
     setupReviewModal();
     setupCinemaModal();
@@ -636,12 +638,16 @@
   function updateCartUI() {
     const totalCount = State.cart.reduce((sum, item) => sum + item.quantity, 0);
     if (DOM.cartCountBadge) {
-      DOM.cartCountBadge.textContent = `[ ${totalCount} ]`;
+      DOM.cartCountBadge.textContent = totalCount;
       if (totalCount > 0) {
         DOM.cartCountBadge.classList.add('has-items');
       } else {
         DOM.cartCountBadge.classList.remove('has-items');
       }
+    }
+    const cartDrawerCountTitle = document.getElementById('cartDrawerCountTitle');
+    if (cartDrawerCountTitle) {
+      cartDrawerCountTitle.textContent = `[ ${totalCount} ]`;
     }
 
     if (!DOM.cartItemsBody) return;
@@ -754,17 +760,86 @@
   window.closeCartDrawer = closeCartDrawer;
 
   // ---------------------------------------------------------------------------
-  // Currency Selector
+  // Currency Selector (Synchronized Across Drawers)
   // ---------------------------------------------------------------------------
   function setupCurrency() {
-    if (!DOM.currencySelect) return;
-    DOM.currencySelect.value = State.activeCurrency;
-    DOM.currencySelect.addEventListener('change', (e) => {
-      State.activeCurrency = e.target.value;
-      renderShowcaseGrids();
-      if (State.activeProduct) loadPDP(State.activeProduct.id);
-      updateCartUI();
+    const currencySelects = document.querySelectorAll('.currency-select');
+    currencySelects.forEach(sel => {
+      sel.value = State.activeCurrency;
+      sel.addEventListener('change', (e) => {
+        State.activeCurrency = e.target.value;
+        localStorage.setItem('aercious_currency', State.activeCurrency);
+        currencySelects.forEach(s => s.value = State.activeCurrency);
+        renderShowcaseGrids();
+        if (State.activeProduct) loadPDP(State.activeProduct.id);
+        updateCartUI();
+        showLuxuryToast(`CURRENCY: ${State.activeCurrency} CONVERTED`);
+      });
     });
+  }
+
+  // ---------------------------------------------------------------------------
+  // Mobile Slide-Out Navigation Drawer
+  // ---------------------------------------------------------------------------
+  function setupMobileNav() {
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const closeBtn = document.getElementById('mobileNavCloseBtn');
+    const drawer = document.getElementById('mobileNavDrawer');
+    const overlay = document.getElementById('mobileNavOverlay');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMobileNav() {
+      drawer?.classList.add('active');
+      overlay?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+      drawer?.classList.remove('active');
+      overlay?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn?.addEventListener('click', openMobileNav);
+    closeBtn?.addEventListener('click', closeMobileNav);
+    overlay?.addEventListener('click', closeMobileNav);
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.dataset.page;
+        if (page) {
+          navigateTo(page);
+        }
+        closeMobileNav();
+      });
+    });
+  }
+
+  // ---------------------------------------------------------------------------
+  // VIP Atelier Account Modal
+  // ---------------------------------------------------------------------------
+  function setupAccountModal() {
+    const triggerBtn = document.getElementById('accountTriggerBtn');
+    const closeBtn = document.getElementById('accountCloseBtn');
+    const drawer = document.getElementById('accountDrawer');
+    const overlay = document.getElementById('accountOverlay');
+
+    function openAccount() {
+      drawer?.classList.add('active');
+      overlay?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAccount() {
+      drawer?.classList.remove('active');
+      overlay?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    triggerBtn?.addEventListener('click', openAccount);
+    closeBtn?.addEventListener('click', closeAccount);
+    overlay?.addEventListener('click', closeAccount);
   }
 
   // ---------------------------------------------------------------------------
@@ -878,7 +953,7 @@
     const auraSelect = document.getElementById('auraColorSelect');
     const auraBtns = document.querySelectorAll('.typography-quick-dock .dock-aura-btn');
 
-    let savedAura = localStorage.getItem('aercious_color_aura') || 'cobalt';
+    let savedAura = localStorage.getItem('aercious_color_aura') || 'none';
 
     function applyAura(auraKey, notify = false) {
       if (!auraKey) return;
@@ -899,6 +974,7 @@
 
       if (notify) {
         const labels = {
+          none: '∅ NO COLOR (MONOCHROME)',
           cobalt: '⚡ ELECTRIC COBALT',
           solar: '🔥 SOLAR FLAME',
           acid: '🧪 VOLT ACID LIME',
