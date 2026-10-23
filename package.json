@@ -3,18 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "description": "AERCIOUS // Avant-Garde Minimalist Luxury Streetwear Experience",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node scripts/dev-server.js",
+    "start": "node scripts/dev-server.js"
   },
   "keywords": [
     "aercious",
     "luxury-streetwear",
     "fashion",
     "avant-garde",
-    "ecommerce",
-    "vercel"
+    "ecommerce"
   ],
   "author": "AERCIOUS Atelier",
   "license": "UNLICENSED"
